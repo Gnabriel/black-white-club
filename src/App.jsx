@@ -1,7 +1,9 @@
+import HomeView from "./components/pages/Home/HomeView";
+
 function App() {
   return (
     <div className="App">
-      <div className="w-32 h-32 bg-red-400"></div>
+      <HomeView />
     </div>
   );
 }

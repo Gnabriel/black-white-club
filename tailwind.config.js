@@ -3,7 +3,14 @@ module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/**/*.html"],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        display: ["Abril Fatface", "cursive"],
+      },
+      backgroundImage: {
+        "white-black": "linear-gradient(90deg, white 50%, black 50%)",
+      },
+    },
   },
   variants: {
     extend: {},
