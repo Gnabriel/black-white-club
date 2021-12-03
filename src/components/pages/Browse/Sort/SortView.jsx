@@ -1,11 +1,8 @@
-import { Fragment, useState } from "react";
-import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
-import { XIcon } from "@heroicons/react/outline";
+import { Fragment } from "react";
+import { Menu, Transition } from "@headlessui/react";
 import {
   ChevronDownIcon,
   FilterIcon,
-  MinusSmIcon,
-  PlusSmIcon,
   ViewGridIcon,
 } from "@heroicons/react/solid";
 
@@ -21,7 +18,7 @@ const classNames = (...classes) => {
   return classes.filter(Boolean).join(" ");
 };
 
-const SortView = () => {
+const SortView = ({ setMobileFiltersOpen }) => {
   return (
     <div className="flex items-center">
       <Menu as="div" className="relative inline-block text-left">
@@ -79,7 +76,7 @@ const SortView = () => {
       <button
         type="button"
         className="p-2 -m-2 ml-4 sm:ml-6 text-gray-400 hover:text-gray-500 lg:hidden"
-        // onClick={() => setMobileFiltersOpen(true)}
+        onClick={() => setMobileFiltersOpen(true)}
       >
         <span className="sr-only">Filters</span>
         <FilterIcon className="w-5 h-5" aria-hidden="true" />

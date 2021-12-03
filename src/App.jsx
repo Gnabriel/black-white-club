@@ -1,7 +1,6 @@
-import BrowseView from "./components/pages/Browse/BrowseView";
-import HomeView from "./components/pages/Home/HomeView";
 import AssetSource from "./api/assetSource";
 import { useEffect } from "react";
+import BrowsePresenter from "./components/pages/Browse/BrowsePresenter";
 
 function App() {
   useEffect(() => {
@@ -17,8 +16,7 @@ function App() {
   }, []);
   return (
     <div className="App">
-      {/* <HomeView /> */}
-      <BrowseView />
+      <BrowsePresenter />
     </div>
   );
 }
