@@ -1,11 +1,9 @@
-import BrowseView from "./components/pages/Browse/BrowseView";
-import HomeView from "./components/pages/Home/HomeView";
+import BrowsePresenter from "./components/pages/Browse/BrowsePresenter";
 
 function App() {
   return (
     <div className="App">
-      {/* <HomeView /> */}
-      <BrowseView />
+      <BrowsePresenter />
     </div>
   );
 }
