@@ -16,10 +16,13 @@ const AssetSource = {
   getAssets(params) {
     return AssetSource.apiCall("assets?" + new URLSearchParams(params)).then(
       (data) => {
+        console.dir(data);
+
         const filteredAssets = data.assets.map((asset) => {
           return (asset = {
             id: parseInt(asset.token_id),
             name: asset.name,
+            description: asset.description,
             animationUrl: asset.animation_url,
             imageUrl: asset.image_url,
             weiPrice: asset.sell_orders
