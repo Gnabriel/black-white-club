@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+Short description of your project:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An application for the Black White Club NFT where you can find information about the NFT.
+Black White Club is a collection of XXXX art pieces registered as NFTs on a blockchain. If
+you own one of the NFTs you can create an account and become a member of the club.
+Users may register with Google in order to become a member. Members get access to
+contribute to the marketing page
 
-## Available Scripts
+Theese are the pages of the application:
+● Home
+● Browse
+● Details
+● Login
+● Signup
+● Marketing
 
-In the project directory, you can run:
+The Home page will consist of information about the NFTs. The Browse page will display all
+the NFT art pieces, which will be fetched from an API by OpenSea. Users may filter and sort
+the NFTs shown by parameters provided by the API. If you click on an NFT you get to its
+Detail page where more information is shown about that asset. The Login and Signup page
+lets users login/register with their Google account. The Marketing page is open for all visitors
+to view. Here, logged in users can embed their social media posts (e.g twitter, reddit,
+medium) about Black White Club.
 
-### `npm start`
+What you have done:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+We have set up the page, with an homepage that still misses information about the NFT. You can enter the browse page where some NFTs that are read from openseaAPI are shown(and some filter options that do not work and will be changed). Clicking one of the NFTs will lead you to a detailed page about the specific NFT.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+What you still plan to do:
 
-### `npm test`
+We still need to finish the start page with information about the Black White Club.
+Overall the design still aren't done.
+The login function are still to be done.
+The model which will be implemented with redux.
+Database with firebase.
+Marketing page.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Your project file structure (short description/purpose of each file):
 
-### `npm run build`
+In the src map we have the following files:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+index.jsx: initial render of the application
+app.jsx: Render components and set up routes
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+api: folder for all js files regarding api calls
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+components: folder for all presenters and views
 
-### `npm run eject`
+    common: folder for all views that are used on more than one presenter.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    pages: folder for all presenters and views for the different pages of the application
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+        Browse: folder for all presenters and views for the browse page
+        Home: folder for all presenters and views for the home page
