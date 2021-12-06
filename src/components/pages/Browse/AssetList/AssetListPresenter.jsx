@@ -83,7 +83,7 @@ const assets = [
   },
 ];
 
-export const AssetListPresenter = () => {
+const AssetListPresenter = () => {
   return <AssetListView assets={assets} />;
 };
 
