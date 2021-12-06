@@ -8,6 +8,7 @@ import store from "../../../../redux/store";
 const AssetListPresenter = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [assets, setAssets] = useState(null);
+
   const params = {
     offset: 0,
     limit: 5,
@@ -15,11 +16,13 @@ const AssetListPresenter = () => {
     collection: "the-fungible-by-pak",
     order_by: "sale_price",
   };
+
   useEffect(() => {
     setIsLoading(true);
     AssetSource.getAssets(params).then((data) => {
       setAssets(data);
       setIsLoading(false);
+      console.dir(data);
     });
   }, []);
   useDispatch(setSortingOptions("test"));
