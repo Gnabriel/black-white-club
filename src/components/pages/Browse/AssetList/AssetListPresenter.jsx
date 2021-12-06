@@ -1,10 +1,12 @@
 import AssetSource from "../../../../api/assetSource";
 import AssetListView from "./AssetListView";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 
 export const AssetListPresenter = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [assets, setAssets] = useState(null);
+  let navigate = useNavigate();
 
   const params = {
     offset: 0,
@@ -23,7 +25,15 @@ export const AssetListPresenter = () => {
     });
   }, []);
 
-  return isLoading ? <div>Loading...</div> : <AssetListView assets={assets} />;
+  const handleAssetClick = (assetId) => {
+    navigate("/assets/" + assetId);
+  };
+
+  return isLoading ? (
+    <div>Loading...</div>
+  ) : (
+    <AssetListView assets={assets} handleClick={handleAssetClick} />
+  );
 };
 
 export default AssetListPresenter;
