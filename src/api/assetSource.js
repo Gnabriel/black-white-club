@@ -9,7 +9,6 @@ const AssetSource = {
   getAssetsFull(params) {
     return AssetSource.apiCall("assets?" + new URLSearchParams(params)).then(
       (data) => {
-        console.dir(data.assets);
         return data.assets;
       }
     );
@@ -19,7 +18,7 @@ const AssetSource = {
       (data) => {
         const filteredAssets = data.assets.map((asset) => {
           return (asset = {
-            id: asset.id,
+            id: parseInt(asset.token_id),
             name: asset.name,
             animationUrl: asset.animation_url,
             imageUrl: asset.image_url,
