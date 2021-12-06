@@ -24,14 +24,14 @@ medium) about Black White Club.
 
 What you have done:
 
-We have set up the page, with an homepage that still misses information about the NFT. You can enter the browse page where some NFTs that are read from openseaAPI are shown(and some filter options that do not work and will be changed). Clicking one of the NFTs will lead you to a detailed page about the specific NFT.
+We have set up the page, with an homepage that still misses information about the NFT. You can enter the browse page where some NFTs that are read from openseaAPI are shown(and some filter options that do not work and will be changed). Clicking one of the NFTs will lead you to a detailed page about the specific NFT. We have started implement the model with redux but are not done. 
 
 What you still plan to do:
 
 We still need to finish the start page with information about the Black White Club.
 Overall the design still aren't done.
 The login function are still to be done.
-The model which will be implemented with redux.
+Finish the redux model.
 Database with firebase.
 Marketing page.
 
