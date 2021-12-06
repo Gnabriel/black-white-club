@@ -1,8 +1,11 @@
 import AssetSource from "../../../../api/assetSource";
 import AssetListView from "./AssetListView";
 import { useState, useEffect } from "react";
+import { setSortingOptions } from "../../../../redux/actions/sortingOptions";
+import { useDispatch, useSelector } from "react-redux";
+import store from "../../../../redux/store";
 
-export const AssetListPresenter = () => {
+const AssetListPresenter = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [assets, setAssets] = useState(null);
   const params = {
@@ -19,8 +22,10 @@ export const AssetListPresenter = () => {
       setIsLoading(false);
     });
   }, []);
+  useDispatch(setSortingOptions("test"));
 
-  console.dir(assets);
+  console.log(useSelector((state) => state.sortingOptions.options));
+  //console.dir(assets);
 
   return isLoading ? <div>Loading...</div> : <AssetListView assets={assets} />;
 };
