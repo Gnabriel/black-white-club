@@ -2,47 +2,22 @@ import { useState } from "react";
 import BrowseView from "./BrowseView";
 
 const subCategories = [
-  { name: "Totes", href: "#" },
-  { name: "Backpacks", href: "#" },
-  { name: "Travel Bags", href: "#" },
-  { name: "Hip Bags", href: "#" },
-  { name: "Laptop Sleeves", href: "#" },
+  { name: "Subcategory #1", href: "#" },
+  { name: "Subcategory #2", href: "#" },
+  { name: "Subcategory #3", href: "#" },
+  { name: "Subcategory #4", href: "#" },
+  { name: "Subcategory #5", href: "#" },
 ];
 
 const filters = [
   {
     id: "color",
-    name: "Color",
+    name: "Status",
     options: [
-      { value: "white", label: "White", checked: false },
-      { value: "beige", label: "Beige", checked: false },
-      { value: "blue", label: "Blue", checked: true },
-      { value: "brown", label: "Brown", checked: false },
-      { value: "green", label: "Green", checked: false },
-      { value: "purple", label: "Purple", checked: false },
-    ],
-  },
-  {
-    id: "category",
-    name: "Category",
-    options: [
-      { value: "new-arrivals", label: "New Arrivals", checked: false },
-      { value: "sale", label: "Sale", checked: false },
-      { value: "travel", label: "Travel", checked: true },
-      { value: "organization", label: "Organization", checked: false },
-      { value: "accessories", label: "Accessories", checked: false },
-    ],
-  },
-  {
-    id: "size",
-    name: "Size",
-    options: [
-      { value: "2l", label: "2L", checked: false },
-      { value: "6l", label: "6L", checked: false },
-      { value: "12l", label: "12L", checked: false },
-      { value: "18l", label: "18L", checked: false },
-      { value: "20l", label: "20L", checked: false },
-      { value: "40l", label: "40L", checked: true },
+      { value: "buy-now", label: "Buy Now", checked: false },
+      { value: "on-auction", label: "On Auction", checked: false },
+      { value: "new", label: "New", checked: true },
+      { value: "has-offers", label: "Has Offers", checked: false },
     ],
   },
 ];
