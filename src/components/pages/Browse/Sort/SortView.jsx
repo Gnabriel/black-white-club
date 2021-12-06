@@ -68,13 +68,6 @@ const SortView = ({ setMobileFiltersOpen }) => {
 
       <button
         type="button"
-        className="p-2 -m-2 ml-5 sm:ml-7 text-gray-400 hover:text-gray-500"
-      >
-        <span className="sr-only">View grid</span>
-        <ViewGridIcon className="w-5 h-5" aria-hidden="true" />
-      </button>
-      <button
-        type="button"
         className="p-2 -m-2 ml-4 sm:ml-6 text-gray-400 hover:text-gray-500 lg:hidden"
         onClick={() => setMobileFiltersOpen(true)}
       >
