@@ -2,8 +2,10 @@ import AssetSource from "../../../../api/assetSource";
 import AssetListView from "./AssetListView";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
+import { setSortingOptions } from "../../../../redux/actions/sortingOptions";
+import { useDispatch, useSelector } from "react-redux";
 
-export const AssetListPresenter = () => {
+const AssetListPresenter = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [assets, setAssets] = useState(null);
   let navigate = useNavigate();
@@ -24,6 +26,10 @@ export const AssetListPresenter = () => {
       console.dir(data);
     });
   }, []);
+  useDispatch(setSortingOptions("test"));
+
+  console.log(useSelector((state) => state.sortingOptions.options));
+  //console.dir(assets);
 
   const handleAssetClick = (assetId) => {
     navigate("/assets/" + assetId);
