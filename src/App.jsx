@@ -1,6 +1,8 @@
 import AssetSource from "./api/assetSource";
 import { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import BrowsePresenter from "./components/pages/Browse/BrowsePresenter";
+import HomeView from "./components/pages/Home/HomeView";
 
 function App() {
   useEffect(() => {
@@ -15,9 +17,12 @@ function App() {
     AssetSource.getAssets2(params);
   }, []);
   return (
-    <div className="App">
-      <BrowsePresenter />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomeView />} />
+        <Route path="/browse" element={<BrowsePresenter />} />
+      </Routes>
+    </Router>
   );
 }
 
