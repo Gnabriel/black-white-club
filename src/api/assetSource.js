@@ -18,7 +18,7 @@ const AssetSource = {
   getAssets2(params) {
     return AssetSource.apiCall("assets?" + new URLSearchParams(params)).then(
       (data) => {
-        console.dir(data.assets);
+        //console.dir(data.assets);
         const filteredAssets = data.assets.map((asset) => {
           return (asset = {
             id: asset.id,
@@ -38,7 +38,7 @@ const AssetSource = {
               : null,
           });
         });
-        console.dir(filteredAssets);
+        //console.dir(filteredAssets);
         return filteredAssets;
       }
     );
