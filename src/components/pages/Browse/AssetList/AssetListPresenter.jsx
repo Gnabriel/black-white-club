@@ -1,13 +1,14 @@
 import AssetSource from "../../../../api/assetSource";
 import AssetListView from "./AssetListView";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import { setSortingOptions } from "../../../../redux/actions/sortingOptions";
 import { useDispatch, useSelector } from "react-redux";
-import store from "../../../../redux/store";
 
 const AssetListPresenter = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [assets, setAssets] = useState(null);
+  let navigate = useNavigate();
 
   const params = {
     offset: 0,
@@ -30,7 +31,15 @@ const AssetListPresenter = () => {
   console.log(useSelector((state) => state.sortingOptions.options));
   //console.dir(assets);
 
-  return isLoading ? <div>Loading...</div> : <AssetListView assets={assets} />;
+  const handleAssetClick = (assetId) => {
+    navigate("/assets/" + assetId);
+  };
+
+  return isLoading ? (
+    <div>Loading...</div>
+  ) : (
+    <AssetListView assets={assets} handleClick={handleAssetClick} />
+  );
 };
 
 export default AssetListPresenter;
