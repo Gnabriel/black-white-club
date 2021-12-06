@@ -4,10 +4,11 @@ export const AssetListView = ({ assets }) => {
       <div className="max-w-2xl mx-auto pb-16 px-4 sm:pb-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {assets.map((asset) => (
-            <a key={asset.id} href={asset.href} className="group">
+            <div key={asset.id} className="group">
               <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
                 <img
                   src={asset.imageUrl}
+                  alt={asset.name}
                   className="w-full h-full object-center object-cover group-hover:opacity-75"
                 />
               </div>
@@ -15,7 +16,7 @@ export const AssetListView = ({ assets }) => {
               <p className="mt-1 text-lg font-medium text-gray-900">
                 {asset.ethPrice || "N/A"}
               </p>
-            </a>
+            </div>
           ))}
         </div>
       </div>
