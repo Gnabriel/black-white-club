@@ -21,7 +21,10 @@ const AssetSource = {
         const filteredAssets = data.assets.map((asset) => {
           return (asset = {
             id: parseInt(asset.token_id),
-            owner: asset.owner ? asset.owner.user.username : null,
+            owner:
+              asset.owner && asset.owner.user
+                ? asset.owner.user.username
+                : null,
             name: asset.name,
             description: asset.description,
             animationUrl: asset.animation_url,
