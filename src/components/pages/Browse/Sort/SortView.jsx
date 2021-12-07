@@ -1,10 +1,6 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import {
-  ChevronDownIcon,
-  FilterIcon,
-  ViewGridIcon,
-} from "@heroicons/react/solid";
+import { ChevronDownIcon, FilterIcon } from "@heroicons/react/solid";
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
