@@ -2,8 +2,8 @@ import AssetSource from "../../../../api/assetSource";
 import AssetListView from "./AssetListView";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import { setSortingOptions } from "../../../../redux/actions/sortingOptions";
-import { useDispatch, useSelector } from "react-redux";
+import { setCurrentAsset } from "../../../../redux/actions/currentAsset";
+import { useDispatch, useSelector, connect } from "react-redux";
 
 const AssetListPresenter = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,18 +18,21 @@ const AssetListPresenter = () => {
     order_by: "sale_price",
   };
 
-  useEffect(() => {
-    setIsLoading(true);
-    AssetSource.getAssets(params).then((data) => {
-      setAssets(data);
-      setIsLoading(false);
-      console.dir(data);
-    });
-  }, []);
-  useDispatch(setSortingOptions("test"));
+  const currentAsset = useSelector((state) => state.currentAsset);
+  console.log(currentAsset);
+  // const dispatch = useDispatch();
+  // dispatch(setAssets(100));
+  // const currentAsset2 = useSelector((state) => state.currentAsset);
+  // console.log(currentAsset2);
 
-  console.log(useSelector((state) => state.sortingOptions.options));
-  //console.dir(assets);
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   AssetSource.getAssets(params).then((data) => {
+  //     setAssets(data);
+  //     setIsLoading(false);
+  //     //console.dir(data);
+  //   });
+  // }, []);
 
   const handleAssetClick = (assetId) => {
     navigate("/assets/" + assetId);

@@ -16,7 +16,7 @@ const AssetSource = {
   getAssets(params) {
     return AssetSource.apiCall("assets?" + new URLSearchParams(params)).then(
       (data) => {
-        console.dir(data);
+        //console.dir(data);
 
         const filteredAssets = data.assets.map((asset) => {
           return (asset = {
