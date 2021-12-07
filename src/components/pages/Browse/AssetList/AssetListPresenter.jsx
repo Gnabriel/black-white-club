@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import setCurrentAsset from "../../../../redux/actions/currentAsset";
 import { useDispatch, useSelector } from "react-redux";
+import PaginationView from "../Pagination/PaginationView";
 
 const AssetListPresenter = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -12,7 +13,7 @@ const AssetListPresenter = () => {
 
   const params = {
     offset: 0,
-    limit: 5,
+    limit: 8,
     order_direction: "desc",
     collection: "the-fungible-by-pak",
     order_by: "sale_price",

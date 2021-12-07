@@ -3,6 +3,7 @@ import AssetListPresenter from "./AssetList/AssetListPresenter";
 import SortView from "./Sort/SortView";
 import FilterView from "./Filter/FilterView";
 import FilterMobileView from "./Filter/FilterMobileView";
+import PaginationView from "./Pagination/PaginationView";
 
 export const BrowseView = ({
   filters,
