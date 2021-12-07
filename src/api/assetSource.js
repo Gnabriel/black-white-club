@@ -21,6 +21,10 @@ const AssetSource = {
         const filteredAssets = data.assets.map((asset) => {
           return (asset = {
             id: parseInt(asset.token_id),
+            owner:
+              asset.owner && asset.owner.user
+                ? asset.owner.user.username
+                : null,
             name: asset.name,
             description: asset.description,
             animationUrl: asset.animation_url,
@@ -36,6 +40,16 @@ const AssetSource = {
                 10 ** -18 *
                 asset.sell_orders[0].payment_token_contract.usd_price
               : null,
+            topBid: asset.top_bid,
+            lastSale: asset.last_sale
+              ? {
+                  date: new Date(asset.last_sale.event_timestamp),
+                  ethPrice: asset.last_sale.payment_token.eth_price,
+                  usdPrice: asset.last_sale.payment_token.usd_price,
+                }
+              : null,
+            numSales: asset.num_sales,
+            openseaLink: asset.permalink,
           });
         });
         return filteredAssets;

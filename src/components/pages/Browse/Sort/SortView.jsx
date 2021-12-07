@@ -1,10 +1,6 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import {
-  ChevronDownIcon,
-  FilterIcon,
-  ViewGridIcon,
-} from "@heroicons/react/solid";
+import { ChevronDownIcon, FilterIcon } from "@heroicons/react/solid";
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
@@ -71,7 +67,6 @@ const SortView = ({ setMobileFiltersOpen }) => {
         className="p-2 -m-2 ml-4 sm:ml-6 text-gray-400 hover:text-gray-500 lg:hidden"
         onClick={() => setMobileFiltersOpen(true)}
       >
-        <span className="sr-only">Filters</span>
         <FilterIcon className="w-5 h-5" aria-hidden="true" />
       </button>
     </div>
