@@ -4,12 +4,12 @@ const NavbarView = () => {
   return (
     <div className="bg-white-black">
       <div className="px-5 py-2 h-full flex justify-between items-center">
-        <span>BWC</span>
-        <div className="mr-8 flex gap-14 text-gray-200">
+        <span className="text-2xl font-display">BWC</span>
+        <div className="mr-8 flex gap-8 text-gray-200 font-bold">
           <Link to="/">Home</Link>
           <Link to="/browse">Browse</Link>
-          {/* <a href="#undefined">Marketing</a>
-          <a href="#undefined">Login</a> */}
+          <Link to="/">Marketing</Link>
+          <Link to="/">Login</Link>
         </div>
       </div>
     </div>

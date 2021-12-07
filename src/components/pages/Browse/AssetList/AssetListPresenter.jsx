@@ -9,7 +9,6 @@ import PaginationView from "../Pagination/PaginationView";
 const AssetListPresenter = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [assets, setAssets] = useState(null);
-  let navigate = useNavigate();
 
   const params = {
     offset: 0,
@@ -19,32 +18,15 @@ const AssetListPresenter = () => {
     order_by: "sale_price",
   };
 
-  const currentAsset = useSelector((state) => state.currentAsset);
-  const reduxDispatch = useDispatch();
-
   useEffect(() => {
     setIsLoading(true);
     AssetSource.getAssets(params).then((data) => {
       setAssets(data);
       setIsLoading(false);
-
-      reduxDispatch(setCurrentAsset(data[0]));
     });
   }, []);
 
-  useEffect(() => {
-    console.log(currentAsset);
-  }, [currentAsset]);
-
-  const handleAssetClick = (assetId) => {
-    navigate("/assets/" + assetId);
-  };
-
-  return isLoading ? (
-    <div>Loading...</div>
-  ) : (
-    <AssetListView assets={assets} handleClick={handleAssetClick} />
-  );
+  return <AssetListView assets={assets} numAssets={20} isLoading={isLoading} />;
 };
 
 export default AssetListPresenter;
