@@ -44,7 +44,6 @@ const FilterMobileView = ({
                   className="-mr-2 w-10 h-10 bg-white p-2 rounded-md flex items-center justify-center text-gray-400"
                   onClick={() => setMobileFiltersOpen(false)}
                 >
-                  <span className="sr-only">Close menu</span>
                   <XIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
               </div>
