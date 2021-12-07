@@ -2,7 +2,7 @@ import AssetSource from "../../../../api/assetSource";
 import AssetListView from "./AssetListView";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import { setSortingOptions } from "../../../../redux/actions/sortingOptions";
+import setCurrentAsset from "../../../../redux/actions/currentAsset";
 import { useDispatch, useSelector } from "react-redux";
 
 const AssetListPresenter = () => {
@@ -18,18 +18,22 @@ const AssetListPresenter = () => {
     order_by: "sale_price",
   };
 
+  const currentAsset = useSelector((state) => state.currentAsset);
+  const reduxDispatch = useDispatch();
+
   useEffect(() => {
     setIsLoading(true);
     AssetSource.getAssets(params).then((data) => {
       setAssets(data);
       setIsLoading(false);
-      console.dir(data);
+
+      reduxDispatch(setCurrentAsset(data[0]));
     });
   }, []);
-  useDispatch(setSortingOptions("test"));
 
-  console.log(useSelector((state) => state.sortingOptions.options));
-  //console.dir(assets);
+  useEffect(() => {
+    console.log(currentAsset);
+  }, [currentAsset]);
 
   const handleAssetClick = (assetId) => {
     navigate("/assets/" + assetId);

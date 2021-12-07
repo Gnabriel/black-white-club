@@ -8,8 +8,8 @@ const NavbarView = () => {
         <div className="mr-8 flex gap-14 text-gray-200">
           <Link to="/">Home</Link>
           <Link to="/browse">Browse</Link>
-          <a href="#undefined">Marketing</a>
-          <a href="#undefined">Login</a>
+          {/* <a href="#undefined">Marketing</a>
+          <a href="#undefined">Login</a> */}
         </div>
       </div>
     </div>
