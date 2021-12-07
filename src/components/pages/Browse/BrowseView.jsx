@@ -1,5 +1,5 @@
 import NavbarView from "../../common/Navbar/NavbarView";
-import AssetListPresenter from "./AssetList/AssetListPresenter";
+import AssetListView from "./AssetList/AssetListView";
 import SortView from "./Sort/SortView";
 import FilterView from "./Filter/FilterView";
 import FilterMobileView from "./Filter/FilterMobileView";
@@ -10,6 +10,9 @@ export const BrowseView = ({
   subCategories,
   mobileFiltersOpen,
   setMobileFiltersOpen,
+  assets,
+  numAssets,
+  isLoading,
 }) => {
   return (
     <div className="bg-white">
@@ -40,7 +43,11 @@ export const BrowseView = ({
 
               {/* Product grid */}
               <div className="lg:col-span-3">
-                <AssetListPresenter />
+                <AssetListView
+                  assets={assets}
+                  numAssets={numAssets}
+                  isLoading={isLoading}
+                />
               </div>
             </div>
           </section>

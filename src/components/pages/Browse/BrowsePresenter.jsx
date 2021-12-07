@@ -28,21 +28,44 @@ const BrowsePresenter = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [assets, setAssets] = useState(null);
+  const [currentOffset, setCurrentOffset] = useState(0);
 
-  const handlePaginationClick = (offset) => {
-    console.log(offset);
-    const params = {
-      offset: offset,
-      limit: 8,
-      order_direction: "desc",
-      collection: "the-fungible-by-pak",
-      order_by: "sale_price",
-    };
-    AssetSource.getAssets(params).then((data) => {
-      setAssets(data);
-      console.dir(data);
-    });
+  const numAssets = 10;
+
+  const getAssetsParams = {
+    offset: currentOffset,
+    limit: numAssets,
+    order_direction: "desc",
+    collection: "the-fungible-by-pak",
+    order_by: "sale_price",
   };
+
+  const handlePaginationClick = ({ increment }) => {
+    let newOffset = null;
+    increment
+      ? (newOffset = currentOffset + numAssets)
+      : (newOffset = currentOffset - numAssets);
+
+    newOffset < 0 ? setCurrentOffset(0) : setCurrentOffset(newOffset);
+  };
+
+  // const handlePaginationClick = (paginationOffset) => {
+  //   console.log(paginationOffset);
+  //   AssetSource.getAssets({
+  //     ...getAssetsParams,
+  //     offset: paginationOffset,
+  //   }).then((data) => {
+  //     setAssets(data);
+  //   });
+  // };
+
+  useEffect(() => {
+    setIsLoading(true);
+    AssetSource.getAssets(getAssetsParams).then((data) => {
+      setAssets(data);
+      setIsLoading(false);
+    });
+  }, [currentOffset]);
 
   return (
     <Fragment>
@@ -51,8 +74,14 @@ const BrowsePresenter = () => {
         subCategories={subCategories}
         mobileFiltersOpen={mobileFiltersOpen}
         setMobileFiltersOpen={setMobileFiltersOpen}
+        assets={assets}
+        numAssets={numAssets}
+        isLoading={isLoading}
       />
-      <PaginationView handleClick={handlePaginationClick} />
+      <PaginationView
+        handleClick={handlePaginationClick}
+        currentOffset={currentOffset}
+      />
     </Fragment>
   );
 };

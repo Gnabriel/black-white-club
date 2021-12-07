@@ -1,7 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
 
-const PaginationView = ({ handleClick }) => {
+const PaginationView = ({ handleClick, currentOffset }) => {
   return (
     <div className="bg-white px-4 py-3 flex items-center justify-between sm:px-6">
       <div className="flex-1 flex justify-between sm:hidden">
@@ -25,8 +25,14 @@ const PaginationView = ({ handleClick }) => {
             aria-label="Pagination"
           >
             <button
-              onClick={() => handleClick(8)}
-              className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+              onClick={() => handleClick({ increment: false })}
+              disabled={currentOffset <= 0}
+              className={`relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium
+              ${
+                currentOffset <= 0
+                  ? "bg-gray-100 text-gray-300 cursor-default"
+                  : "text-gray-400 hover:bg-gray-50"
+              }`}
             >
               <span className="sr-only">Previous</span>
               <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
@@ -34,7 +40,7 @@ const PaginationView = ({ handleClick }) => {
             {/* Current: "z-10 bg-indigo-50 border-indigo-500 text-indigo-600", Default: "bg-white border-gray-300 text-gray-500 hover:bg-gray-50" */}
 
             <button
-              onClick={() => handleClick(8)}
+              onClick={() => handleClick({ increment: true })}
               className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
             >
               <span className="sr-only">Next</span>
