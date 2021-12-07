@@ -5,13 +5,15 @@ import HomeView from "./components/pages/Home/HomeView";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomeView />} />
-        <Route path="/browse" element={<BrowsePresenter />} />
-        <Route path="/assets/:id" element={<AssetDetailsPresenter />} />
-      </Routes>
-    </Router>
+    <div className="selection:bg-gray-400">
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomeView />} />
+          <Route path="/browse" element={<BrowsePresenter />} />
+          <Route path="/assets/:id" element={<AssetDetailsPresenter />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
