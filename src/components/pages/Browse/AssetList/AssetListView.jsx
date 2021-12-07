@@ -5,7 +5,7 @@ export const AssetListView = ({ assets, handleClick }) => {
         <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {assets.map((asset) => (
             <div
-              onClick={() => handleClick(asset.id)}
+              onClick={() => handleClick(asset)}
               key={asset.id}
               className="group"
             >

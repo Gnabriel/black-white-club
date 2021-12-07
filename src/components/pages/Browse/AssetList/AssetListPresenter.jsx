@@ -3,7 +3,7 @@ import AssetListView from "./AssetListView";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import setCurrentAsset from "../../../../redux/actions/currentAsset";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const AssetListPresenter = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +18,6 @@ const AssetListPresenter = () => {
     order_by: "sale_price",
   };
 
-  const currentAsset = useSelector((state) => state.currentAsset);
   const reduxDispatch = useDispatch();
 
   useEffect(() => {
@@ -26,17 +25,12 @@ const AssetListPresenter = () => {
     AssetSource.getAssets(params).then((data) => {
       setAssets(data);
       setIsLoading(false);
-
-      reduxDispatch(setCurrentAsset(data[0]));
     });
   }, []);
 
-  useEffect(() => {
-    console.log(currentAsset);
-  }, [currentAsset]);
-
-  const handleAssetClick = (assetId) => {
-    navigate("/assets/" + assetId);
+  const handleAssetClick = (asset) => {
+    reduxDispatch(setCurrentAsset(asset));
+    navigate("/assets/" + asset.id);
   };
 
   return isLoading ? (
