@@ -1,4 +1,6 @@
-export const setCurrentAsset = (param) => ({
+const setCurrentAsset = (param) => ({
   type: "SET_ASSET",
-  id: param,
+  asset: param,
 });
+
+export default setCurrentAsset;

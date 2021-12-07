@@ -2,8 +2,8 @@ import AssetSource from "../../../../api/assetSource";
 import AssetListView from "./AssetListView";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import { setCurrentAsset } from "../../../../redux/actions/currentAsset";
-import { useDispatch, useSelector, connect } from "react-redux";
+import setCurrentAsset from "../../../../redux/actions/currentAsset";
+import { useDispatch, useSelector } from "react-redux";
 
 const AssetListPresenter = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -19,20 +19,21 @@ const AssetListPresenter = () => {
   };
 
   const currentAsset = useSelector((state) => state.currentAsset);
-  console.log(currentAsset);
-  // const dispatch = useDispatch();
-  // dispatch(setAssets(100));
-  // const currentAsset2 = useSelector((state) => state.currentAsset);
-  // console.log(currentAsset2);
+  const reduxDispatch = useDispatch();
 
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   AssetSource.getAssets(params).then((data) => {
-  //     setAssets(data);
-  //     setIsLoading(false);
-  //     //console.dir(data);
-  //   });
-  // }, []);
+  useEffect(() => {
+    setIsLoading(true);
+    AssetSource.getAssets(params).then((data) => {
+      setAssets(data);
+      setIsLoading(false);
+
+      reduxDispatch(setCurrentAsset(data[0]));
+    });
+  }, []);
+
+  useEffect(() => {
+    console.log(currentAsset);
+  }, [currentAsset]);
 
   const handleAssetClick = (assetId) => {
     navigate("/assets/" + assetId);

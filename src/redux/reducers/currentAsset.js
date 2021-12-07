@@ -1,5 +1,5 @@
-const currentAsset = (state = "ingen asset", action) => {
-  if (action.type === "SET_ASSET") return action.id;
+const currentAsset = (state = null, action) => {
+  if (action.type === "SET_ASSET") return action.asset;
   return state;
 };
 
