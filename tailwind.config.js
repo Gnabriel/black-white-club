@@ -5,7 +5,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        display: ["Abril Fatface", "cursive"],
+        // display: ["Abril Fatface", "cursive"],
+        display: ["Ruslan Display", "cursive"],
       },
       backgroundImage: {
         "white-black": "linear-gradient(90deg, white 50%, black 50%)",
