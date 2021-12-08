@@ -23,7 +23,7 @@ const AssetDetailsView = ({ asset }) => {
                   fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true"
-                  className="w-4 h-5 text-gray-300"
+                  className="w-4 h-5 text-gray"
                 >
                   <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
                 </svg>
@@ -78,23 +78,23 @@ const AssetDetailsView = ({ asset }) => {
             </a>
           </div>
 
-          <div className="py-10 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+          <div className="py-10 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-lighter lg:pr-8">
             {/* Description and details */}
             <div>
               <div className="space-y-6">
-                <p className="text-base text-gray-900">{asset.description}</p>
+                <p className="text-base text-black">{asset.description}</p>
               </div>
             </div>
 
             <div className="mt-10">
-              <h3 className="text-sm font-medium text-gray-900">Highlights</h3>
+              <h3 className="text-sm font-medium text-black">Highlights</h3>
 
               <div className="mt-4">
                 <ul className="pl-4 list-disc text-sm space-y-2">
                   {["Lorem", "Ipsum", "Dolor", "Sit", "Amet"].map(
                     (highlight) => (
-                      <li key={highlight} className="text-gray-400">
-                        <span className="text-gray-600">{highlight}</span>
+                      <li key={highlight} className="text-gray">
+                        <span className="text-gray-darker">{highlight}</span>
                       </li>
                     )
                   )}
@@ -103,25 +103,25 @@ const AssetDetailsView = ({ asset }) => {
             </div>
 
             <div className="mt-10">
-              <h2 className="text-sm font-medium text-gray-900">Details</h2>
+              <h2 className="text-sm font-medium text-black">Details</h2>
 
               <div className="mt-4 space-y-6">
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-darker">
                   Number of sales: {asset.numSales}
                 </p>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-darker">
                   Last sale:{" "}
                   {asset.lastSale.date.toDateString() +
                     " " +
                     asset.lastSale.date.toTimeString()}
                 </p>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-darker">
                   Last sale price (USD): {asset.lastSale.usdPrice}
                 </p>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-darker">
                   Last sale price (ETH): {asset.lastSale.ethPrice}
                 </p>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-darker">
                   Top bid: {asset.topBid || "none"}
                 </p>
               </div>
