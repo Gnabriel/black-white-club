@@ -47,9 +47,9 @@ const SortView = ({ setMobileFiltersOpen }) => {
                       className={classNames(
                         option.current
                           ? "font-medium text-black"
-                          : "text-gray-500",
-                        active ? "bg-gray-100" : "",
-                        "block px-4 py-2 text-sm"
+                          : "text-gray-darker",
+                        active ? "bg-gray-lighter" : "",
+                        "block px-4 py-2 text-sm hover:bg-gray-lighter"
                       )}
                     >
                       {option.name}
@@ -64,7 +64,7 @@ const SortView = ({ setMobileFiltersOpen }) => {
 
       <button
         type="button"
-        className="p-2 -m-2 ml-4 sm:ml-6 text-gray-400 hover:text-gray-500 lg:hidden"
+        className="p-2 -m-2 ml-4 sm:ml-6 text-gray-darker hover:text-gray-dark lg:hidden"
         onClick={() => setMobileFiltersOpen(true)}
       >
         <FilterIcon className="w-5 h-5" aria-hidden="true" />
