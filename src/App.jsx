@@ -5,7 +5,7 @@ import HomeView from "./components/pages/Home/HomeView";
 
 function App() {
   return (
-    <div className="selection:bg-gray">
+    <div className="selection:bg-gray text-black">
       <Router>
         <Routes>
           <Route path="/" element={<HomeView />} />
