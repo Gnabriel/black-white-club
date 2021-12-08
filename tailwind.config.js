@@ -12,7 +12,7 @@ module.exports = {
         "white-black":
           "linear-gradient(90deg, var(--white) 50%, var(--black) 50%)",
       },
-      backgroundColor: {
+      colors: {
         black: "var(--black)",
         white: "var(--white)",
         "gray-lighter": "var(--gray-lighter)",
@@ -21,15 +21,24 @@ module.exports = {
         "gray-dark": "var(--gray-dark)",
         "gray-darker": "var(--gray-darker)",
       },
-      textColor: {
-        black: "var(--black)",
-        white: "var(--white)",
-        "gray-lighter": "var(--gray-lighter)",
-        "gray-light": "var(--gray-light)",
-        gray: "var(--gray)",
-        "gray-dark": "var(--gray-dark)",
-        "gray-darker": "var(--gray-darker)",
-      },
+      // backgroundColor: {
+      //   black: "var(--black)",
+      //   white: "var(--white)",
+      //   "gray-lighter": "var(--gray-lighter)",
+      //   "gray-light": "var(--gray-light)",
+      //   gray: "var(--gray)",
+      //   "gray-dark": "var(--gray-dark)",
+      //   "gray-darker": "var(--gray-darker)",
+      // },
+      // textColor: {
+      //   black: "var(--black)",
+      //   white: "var(--white)",
+      //   "gray-lighter": "var(--gray-lighter)",
+      //   "gray-light": "var(--gray-light)",
+      //   gray: "var(--gray)",
+      //   "gray-dark": "var(--gray-dark)",
+      //   "gray-darker": "var(--gray-darker)",
+      // },
     },
   },
   variants: {
