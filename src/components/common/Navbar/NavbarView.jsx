@@ -8,7 +8,7 @@ const NavbarView = () => {
         <div className="mr-8 flex gap-8 text-white font-bold">
           <Link to="/">Home</Link>
           <Link to="/browse">Browse</Link>
-          <Link to="/">Marketing</Link>
+          <Link to="/marketing">Marketing</Link>
           <Link to="/login">Login</Link>
         </div>
       </div>
