@@ -36,7 +36,7 @@ const BrowsePresenter = () => {
     urlParams.page ? parseInt(urlParams.page) : 0
   );
 
-  const numAssets = 10;
+  const numAssets = 24;
 
   const handlePaginationClick = ({ increment }) => {
     const newPage = increment
