@@ -2,7 +2,6 @@ import { Fragment, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import AssetSource from "../../../api/assetSource";
 import BrowseView from "./BrowseView";
-import PaginationView from "./Pagination/PaginationView";
 
 const subCategories = [
   { name: "Subcategory #1", href: "#" },
