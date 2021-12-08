@@ -38,10 +38,10 @@ const FilterMobileView = ({
           >
             <div className="ml-auto relative max-w-xs w-full h-full bg-white shadow-xl py-4 pb-12 flex flex-col overflow-y-auto">
               <div className="px-4 flex items-center justify-between">
-                <h2 className="text-lg font-medium text-gray-900">Filters</h2>
+                <h2 className="text-lg font-medium text-black">Filters</h2>
                 <button
                   type="button"
-                  className="-mr-2 w-10 h-10 bg-white p-2 rounded-md flex items-center justify-center text-gray-400"
+                  className="-mr-2 w-10 h-10 bg-white p-2 rounded-md flex items-center justify-center text-gray-darker"
                   onClick={() => setMobileFiltersOpen(false)}
                 >
                   <XIcon className="h-6 w-6" aria-hidden="true" />
