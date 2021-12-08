@@ -9,7 +9,7 @@ const NavbarView = () => {
           <Link to="/">Home</Link>
           <Link to="/browse">Browse</Link>
           <Link to="/">Marketing</Link>
-          <Link to="/">Login</Link>
+          <Link to="/login">Login</Link>
         </div>
       </div>
     </div>
