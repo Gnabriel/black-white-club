@@ -8,14 +8,16 @@ const DetailsPresenter = () => {
   const [assetData, setAssetData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const params = {
-    token_ids: [useParams().id],
-    collection: "the-fungible-by-pak",
-  };
+  const currentId = useParams().id;
 
   const currentAsset = useSelector((state) => state.currentAsset);
 
   useEffect(() => {
+    const params = {
+      token_ids: [currentId],
+      collection: "the-fungible-by-pak",
+    };
+
     if (currentAsset) {
       setAssetData(currentAsset);
       setIsLoading(false);
@@ -28,7 +30,7 @@ const DetailsPresenter = () => {
       }
       setIsLoading(false);
     });
-  }, []);
+  }, [currentId, currentAsset]);
 
   return isLoading ? (
     <div>Loading...</div>

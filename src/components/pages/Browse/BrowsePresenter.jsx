@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
 import AssetSource from "../../../api/assetSource";
 import BrowseView from "./BrowseView";
 import PaginationView from "./Pagination/PaginationView";
@@ -25,47 +26,41 @@ const filters = [
 ];
 
 const BrowsePresenter = () => {
+  let navigate = useNavigate();
+  const urlParams = useParams();
+
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [assets, setAssets] = useState(null);
-  const [currentOffset, setCurrentOffset] = useState(0);
+  const [currentPage, setCurrentPage] = useState(
+    urlParams.page ? parseInt(urlParams.page) : 0
+  );
 
   const numAssets = 10;
 
-  const getAssetsParams = {
-    offset: currentOffset,
-    limit: numAssets,
-    order_direction: "desc",
-    collection: "the-fungible-by-pak",
-    order_by: "sale_price",
-  };
-
   const handlePaginationClick = ({ increment }) => {
-    let newOffset = null;
-    increment
-      ? (newOffset = currentOffset + numAssets)
-      : (newOffset = currentOffset - numAssets);
-
-    newOffset < 0 ? setCurrentOffset(0) : setCurrentOffset(newOffset);
+    const newPage = increment
+      ? parseInt(currentPage + 1)
+      : parseInt(currentPage - 1);
+    setCurrentPage(newPage);
+    navigate(newPage === 0 ? "/browse" : "/browse/" + newPage);
   };
-
-  // const handlePaginationClick = (paginationOffset) => {
-  //   console.log(paginationOffset);
-  //   AssetSource.getAssets({
-  //     ...getAssetsParams,
-  //     offset: paginationOffset,
-  //   }).then((data) => {
-  //     setAssets(data);
-  //   });
-  // };
 
   useEffect(() => {
+    const getAssetsParams = {
+      offset: currentPage * numAssets,
+      limit: numAssets,
+      order_direction: "desc",
+      collection: "the-fungible-by-pak",
+      order_by: "sale_price",
+    };
+
     setIsLoading(true);
     AssetSource.getAssets(getAssetsParams).then((data) => {
       setAssets(data);
       setIsLoading(false);
     });
-  }, [currentOffset]);
+  }, [currentPage]);
 
   return (
     <Fragment>
@@ -80,7 +75,7 @@ const BrowsePresenter = () => {
       />
       <PaginationView
         handleClick={handlePaginationClick}
-        currentOffset={currentOffset}
+        currentPage={currentPage}
       />
     </Fragment>
   );
