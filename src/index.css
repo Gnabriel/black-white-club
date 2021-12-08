@@ -4,3 +4,13 @@
 
 /* @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap");
+
+:root {
+  --white: #ffffff;
+  --black: #0b0b0b;
+  --gray-lighter: #f5f6f9;
+  --gray-light: #d8dce7;
+  --gray: #9ba1ae;
+  --gray-dark: #66676c;
+  --gray-darker: #252527;
+}
