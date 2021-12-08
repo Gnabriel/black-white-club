@@ -72,9 +72,7 @@ const BrowsePresenter = () => {
         assets={assets}
         numAssets={numAssets}
         isLoading={isLoading}
-      />
-      <PaginationView
-        handleClick={handlePaginationClick}
+        handlePaginationClick={handlePaginationClick}
         currentPage={currentPage}
       />
     </Fragment>

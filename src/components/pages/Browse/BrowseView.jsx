@@ -3,6 +3,7 @@ import AssetListView from "./AssetList/AssetListView";
 import SortView from "./Sort/SortView";
 import FilterView from "./Filter/FilterView";
 import FilterMobileView from "./Filter/FilterMobileView";
+import PaginationView from "./Pagination/PaginationView";
 
 export const BrowseView = ({
   filters,
@@ -12,6 +13,8 @@ export const BrowseView = ({
   assets,
   numAssets,
   isLoading,
+  currentPage,
+  handlePaginationClick,
 }) => {
   return (
     <div className="bg-white">
@@ -46,6 +49,10 @@ export const BrowseView = ({
                   assets={assets}
                   numAssets={numAssets}
                   isLoading={isLoading}
+                />
+                <PaginationView
+                  handleClick={handlePaginationClick}
+                  currentPage={currentPage}
                 />
               </div>
             </div>
