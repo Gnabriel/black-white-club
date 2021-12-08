@@ -4,7 +4,10 @@ const HomeView = () => {
   return (
     <div className="h-screen">
       <NavbarView />
-      <div className="h-full flex bg-white-black">
+      {/* <div className="h-full bg-white-black"> */}
+      <div className="h-full grid grid-cols-2 bg-white-black">
+        <div className="hero-white-marble-img"></div>
+        <div className="hero-black-marble-img"></div>
         <h1 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col text-9xl italic font-black font-display items-center">
           <span className="h-24">
             <span className="mr-8 absolute right-1/2 text-black">BLACK</span>

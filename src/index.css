@@ -14,3 +14,13 @@
   --gray-dark: #66676c;
   --gray-darker: #252527;
 }
+
+.hero-black-marble-img {
+  background-image: url("./resources/img/black-marble.png");
+  background-position: center;
+}
+
+.hero-white-marble-img {
+  background-image: url("./resources/img/white-marble.png");
+  background-position: center;
+}
