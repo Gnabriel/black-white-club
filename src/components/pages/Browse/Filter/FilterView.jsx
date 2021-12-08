@@ -3,11 +3,14 @@ import { MinusSmIcon, PlusSmIcon } from "@heroicons/react/solid";
 
 const FilterView = ({ filters, subCategories }) => {
   return (
-    <form className="mt-4 border-t border-gray-200 lg:mt-0 lg: border-none">
-      <ul className="px-2 py-3 lg:py-0 lg:pt-0 lg:pb-6 lg:space-y-4 text-sm lg:text-base font-medium text-gray-900 lg:border-b lg:border-gray-200">
+    <form className="mt-4 border-t border-gray-lighter lg:mt-0 lg:border-none">
+      <ul className="px-2 py-3 lg:py-0 lg:pt-0 lg:pb-6 lg:space-y-4 text-sm lg:text-base font-medium text-black lg:border-b lg:border-gray-ligher">
         {subCategories.map((category) => (
           <li key={category.name}>
-            <a href={category.href} className="block px-2 py-3 lg:p-0">
+            <a
+              href={category.href}
+              className="block px-2 py-3 lg:p-0 hover:text-gray-dark"
+            >
               {category.name}
             </a>
           </li>
@@ -18,15 +21,13 @@ const FilterView = ({ filters, subCategories }) => {
         <Disclosure
           as="div"
           key={section.id}
-          className="px-4 py-6 lg:px-0 border-t lg:border-t-0 lg:border-b border-gray-200"
+          className="px-4 py-6 lg:px-0 border-t lg:border-t-0 lg:border-b border-gray-lighter"
         >
           {({ open }) => (
             <>
               <h3 className="-mx-2 -my-3 lg:mx-0 flow-root">
-                <Disclosure.Button className="px-2 py-3 lg:px-0 bg-white w-full flex items-center justify-between lg:text-sm text-gray-400 hover:text-gray-500">
-                  <span className="font-medium text-gray-900">
-                    {section.name}
-                  </span>
+                <Disclosure.Button className="px-2 py-3 lg:px-0 bg-white w-full flex items-center justify-between lg:text-sm text-black hover:text-gray-dark">
+                  <span className="font-medium text-black">{section.name}</span>
                   <span className="ml-6 flex items-center">
                     {open ? (
                       <MinusSmIcon className="h-5 w-5" aria-hidden="true" />
@@ -46,11 +47,11 @@ const FilterView = ({ filters, subCategories }) => {
                         defaultValue={option.value}
                         type="checkbox"
                         defaultChecked={option.checked}
-                        className="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
+                        className="h-4 w-4 border-gray rounded bg-white text-black focus:ring-transparent"
                       />
                       <label
                         htmlFor={`filter-${section.id}-${optionIdx}`}
-                        className="ml-3 min-w-0 lg:min-w-min flex-1 lg:flex-none lg:text-sm text-gray-500 lg:text-gray-600"
+                        className="ml-3 min-w-0 lg:min-w-min flex-1 lg:flex-none lg:text-sm text-gray-darker"
                       >
                         {option.label}
                       </label>

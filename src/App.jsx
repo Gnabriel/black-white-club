@@ -8,7 +8,7 @@ import MarketingPresenter from "./components/pages/Marketing/MarketingPresenter"
 
 function App() {
   return (
-    <div className="selection:bg-gray">
+    <div className="selection:bg-gray text-black">
       <Router>
         <Routes>
           <Route path="/" element={<HomeView />} />
