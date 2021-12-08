@@ -10,6 +10,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomeView />} />
           <Route path="/browse" element={<BrowsePresenter />} />
+          <Route path="/browse/:page" element={<BrowsePresenter />} />
           <Route path="/assets/:id" element={<AssetDetailsPresenter />} />
         </Routes>
       </Router>

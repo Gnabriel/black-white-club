@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
 import AssetSource from "../../../api/assetSource";
 import BrowseView from "./BrowseView";
 import PaginationView from "./Pagination/PaginationView";
@@ -32,6 +33,10 @@ const BrowsePresenter = () => {
 
   const numAssets = 10;
 
+  let navigate = useNavigate();
+  const urlParams = useParams();
+  const currentPage = urlParams.page ? parseInt(urlParams.page) : 0;
+
   const getAssetsParams = {
     offset: currentOffset,
     limit: numAssets,
@@ -47,17 +52,13 @@ const BrowsePresenter = () => {
       : (newOffset = currentOffset - numAssets);
 
     newOffset < 0 ? setCurrentOffset(0) : setCurrentOffset(newOffset);
-  };
 
-  // const handlePaginationClick = (paginationOffset) => {
-  //   console.log(paginationOffset);
-  //   AssetSource.getAssets({
-  //     ...getAssetsParams,
-  //     offset: paginationOffset,
-  //   }).then((data) => {
-  //     setAssets(data);
-  //   });
-  // };
+    const newPage = increment
+      ? parseInt(currentPage + 1)
+      : parseInt(currentPage - 1);
+
+    navigate(newPage === 0 ? "/browse" : "/browse/" + newPage);
+  };
 
   useEffect(() => {
     setIsLoading(true);
