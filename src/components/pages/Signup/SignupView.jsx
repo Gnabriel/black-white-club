@@ -1,10 +1,8 @@
 import { LockClosedIcon } from "@heroicons/react/solid";
-import NavbarView from "../../common/Navbar/NavbarView";
 
-const RegisterView = () => {
+const SignupView = () => {
   return (
     <div className="bg-white">
-      <NavbarView />
       <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div>
@@ -82,4 +80,4 @@ const RegisterView = () => {
     </div>
   );
 };
-export default RegisterView;
+export default SignupView;

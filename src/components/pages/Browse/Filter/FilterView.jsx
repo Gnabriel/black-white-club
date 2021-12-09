@@ -4,7 +4,7 @@ import { MinusSmIcon, PlusSmIcon } from "@heroicons/react/solid";
 const FilterView = ({ filters, subCategories }) => {
   return (
     <form className="mt-4 border-t border-gray-lighter lg:mt-0 lg:border-none">
-      <ul className="px-2 py-3 lg:py-0 lg:pt-0 lg:pb-6 lg:space-y-4 text-sm lg:text-base font-medium text-black lg:border-b lg:border-gray-ligher">
+      <ul className="px-2 py-3 lg:py-0 lg:pt-0 lg:pb-6 lg:space-y-4 text-sm lg:text-base font-medium text-black lg:border-b lg:border-gray-lighter">
         {subCategories.map((category) => (
           <li key={category.name}>
             <a

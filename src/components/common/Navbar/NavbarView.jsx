@@ -124,17 +124,26 @@ const NavbarView = () => {
                 </>
               )}
             </Popover>
-            <button className="py-2 px-4 text-base rounded-md font-medium text-gray-darker hover:text-black hover:bg-gray-lighter">
+            <Link
+              className="py-2 px-4 text-base rounded-md font-medium text-gray-darker hover:text-black hover:bg-gray-lighter"
+              to="marketing"
+            >
               Marketing
-            </button>
+            </Link>
           </Popover.Group>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-            <button className="py-2 px-4 text-base rounded-md font-medium text-gray-darker hover:text-black hover:bg-gray-lighter whitespace-nowrap">
+            <Link
+              className="py-2 px-4 text-base rounded-md font-medium text-gray-darker hover:text-black hover:bg-gray-lighter whitespace-nowrap"
+              to="login"
+            >
               Sign in
-            </button>
-            <button className="ml-8 py-2 px-4 whitespace-nowrap inline-flex items-center justify-center border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-black hover:bg-gray-darker">
+            </Link>
+            <Link
+              className="ml-8 py-2 px-4 whitespace-nowrap inline-flex items-center justify-center border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-black hover:bg-gray-darker"
+              to="signup"
+            >
               Sign up
-            </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -152,7 +161,7 @@ const NavbarView = () => {
           focus
           className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
         >
-          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-lighter">
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between">
                 <div>

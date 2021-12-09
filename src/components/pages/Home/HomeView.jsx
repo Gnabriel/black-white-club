@@ -1,9 +1,6 @@
-import NavbarView from "../../common/Navbar/NavbarView";
-
 const HomeView = () => {
   return (
     <div className="h-screen">
-      <NavbarView />
       {/* <div className="h-full bg-white-black"> */}
       <div className="h-full grid grid-cols-2 bg-white-black">
         <div className="hero-white-marble-img"></div>

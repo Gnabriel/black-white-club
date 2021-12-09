@@ -1,4 +1,3 @@
-import NavbarView from "../../common/Navbar/NavbarView";
 import AssetListView from "./AssetList/AssetListView";
 import SortView from "./Sort/SortView";
 import FilterView from "./Filter/FilterView";
@@ -18,7 +17,6 @@ export const BrowseView = ({
 }) => {
   return (
     <div className="bg-white">
-      <NavbarView />
       <div>
         {/* Mobile filter dialog */}
         <FilterMobileView
