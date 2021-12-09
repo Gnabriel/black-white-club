@@ -9,17 +9,16 @@ module.exports = {
         display: ["Ruslan Display", "cursive"],
       },
       backgroundImage: {
-        "white-black":
-          "linear-gradient(90deg, var(--white) 50%, var(--black) 50%)",
+        "white-black": "linear-gradient(90deg, white 50%, #0b0b0b 50%)",
       },
       colors: {
-        black: "var(--black)",
-        white: "var(--white)",
-        "gray-lighter": "var(--gray-lighter)",
-        "gray-light": "var(--gray-light)",
-        gray: "var(--gray)",
-        "gray-dark": "var(--gray-dark)",
-        "gray-darker": "var(--gray-darker)",
+        black: "#0b0b0b",
+        white: "white",
+        "gray-lighter": "#f5f6f9",
+        "gray-light": "#d8dce7",
+        gray: "#9ba1ae",
+        "gray-dark": "#66676c",
+        "gray-darker": "#252527",
       },
       // backgroundColor: {
       //   black: "var(--black)",
