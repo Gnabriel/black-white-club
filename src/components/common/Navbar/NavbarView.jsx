@@ -45,8 +45,8 @@ const NavbarView = () => {
   return (
     <Popover className="relative bg-white">
       {/* <div className="mx-auto px-4 sm:px-6 border-b-2 border-gray-lighter"> */}
-      <div className="mx-auto px-4 sm:px-6">
-        <div className="py-2 flex justify-between items-center  md:justify-start md:space-x-10">
+      <div className="h-[6vh] mx-auto px-4 sm:px-6 bg-white flex flex-col justify-center">
+        <div className="flex justify-between items-center  md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <Link className="-mb-2 font-display text-2xl leading-none" to="/">
               BWC
@@ -72,7 +72,7 @@ const NavbarView = () => {
                   <Popover.Button
                     className={classNames(
                       open ? "text-black" : "text-gray-darker",
-                      "py-2 px-4 group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-black hover:bg-gray-lighter focus:outline-none focus:ring-none"
+                      "py-2 px-4 group rounded-md inline-flex items-center text-base font-medium hover:text-black hover:bg-gray-lighter focus:outline-none focus:ring-none"
                     )}
                   >
                     <span>Browse</span>
