@@ -12,13 +12,13 @@ const MarketingPresenter = () => {
 
   const createPost = () => {
     setPostList([
-      ...postList,
       {
         name: postName,
         title: postTitle,
         text: postText,
         id: postId,
       },
+      ...postList,
     ]);
   };
   const cutUrl = (url) => {

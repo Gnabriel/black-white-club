@@ -23,6 +23,7 @@ const PostView = ({ post }) => {
               <TwitterTweetEmbed
                 // Here goes your copied ID.
                 tweetId={post.id}
+                placeholder={"Loading Tweet..."}
               />
             </dd>
           </div>
