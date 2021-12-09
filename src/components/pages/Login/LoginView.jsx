@@ -1,11 +1,9 @@
 import { LockClosedIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
-import NavbarView from "../../common/Navbar/NavbarView";
 
 const LoginView = () => {
   return (
     <div className="bg-white">
-      <NavbarView />
       <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div>
@@ -72,12 +70,9 @@ const LoginView = () => {
               </div>
 
               <div className="text-sm">
-                <a
-                  href="#"
-                  className="font-medium text-black hover:text-gray-500"
-                >
+                <button className="font-medium text-black hover:text-gray-500">
                   Forgot your password?
-                </a>
+                </button>
               </div>
             </div>
 

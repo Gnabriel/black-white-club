@@ -1,4 +1,3 @@
-import NavbarView from "../../common/Navbar/NavbarView";
 import PostListView from "./PostList/PostListView";
 
 const MarketingView = ({ posts }) => {
