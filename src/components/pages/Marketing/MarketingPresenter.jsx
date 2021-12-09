@@ -1,5 +1,4 @@
 import { Fragment, useState } from "react";
-import NavbarView from "../../common/Navbar/NavbarView";
 import MarketingView from "./MarketingView";
 import PostFormView from "./PostForm/PostFormView";
 
@@ -28,7 +27,6 @@ const MarketingPresenter = () => {
 
   return (
     <Fragment>
-      <NavbarView />
       <PostFormView
         onPostName={(name) => setPostName(name)}
         onPostTitle={(title) => setPostTitle(title)}

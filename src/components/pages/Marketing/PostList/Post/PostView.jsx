@@ -1,4 +1,4 @@
-import { TwitterTweetEmbed, TwitterTimelineEmbed } from "react-twitter-embed";
+import { TwitterTweetEmbed } from "react-twitter-embed";
 
 const PostView = ({ post }) => {
   return (
@@ -21,7 +21,6 @@ const PostView = ({ post }) => {
             <dt className="text-sm font-medium text-gray-500">Post</dt>
             <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
               <TwitterTweetEmbed
-                // Here goes your copied ID.
                 tweetId={post.id}
                 placeholder={"Loading Tweet..."}
               />
