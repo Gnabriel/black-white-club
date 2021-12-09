@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
-import NavbarView from "../../common/Navbar/NavbarView";
 
 const AssetDetailsView = ({ asset }) => {
   return (
     <div className="bg-white">
-      <NavbarView />
       <div className="pt-6">
         <nav aria-label="Breadcrumb">
           <ol className="max-w-2xl mx-auto px-4 flex items-center space-x-2 sm:px-6 lg:max-w-7xl lg:px-8">
