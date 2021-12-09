@@ -1,3 +1,5 @@
+const plugin = require("tailwindcss/plugin");
+
 module.exports = {
   mode: "jit",
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/**/*.html"],
@@ -9,17 +11,16 @@ module.exports = {
         display: ["Ruslan Display", "cursive"],
       },
       backgroundImage: {
-        "white-black":
-          "linear-gradient(90deg, var(--white) 50%, var(--black) 50%)",
+        "white-black": "linear-gradient(90deg, white 50%, #0b0b0b 50%)",
       },
       colors: {
-        black: "var(--black)",
-        white: "var(--white)",
-        "gray-lighter": "var(--gray-lighter)",
-        "gray-light": "var(--gray-light)",
-        gray: "var(--gray)",
-        "gray-dark": "var(--gray-dark)",
-        "gray-darker": "var(--gray-darker)",
+        black: "#0b0b0b",
+        white: "white",
+        "gray-lighter": "#f5f6f9",
+        "gray-light": "#d8dce7",
+        gray: "#9ba1ae",
+        "gray-dark": "#66676c",
+        "gray-darker": "#252527",
       },
       // backgroundColor: {
       //   black: "var(--black)",
@@ -44,5 +45,19 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [
+    require("@tailwindcss/forms"),
+    plugin(function ({ addUtilities, addComponents, e, prefix, config }) {
+      const newUtilities = {
+        ".horizontal-tb": {
+          writingMode: "horizontal-tb",
+        },
+        ".vertical-rl": {
+          writingMode: "vertical-rl",
+          "text-orientation": "upright",
+        },
+      };
+      addUtilities(newUtilities);
+    }),
+  ],
 };
