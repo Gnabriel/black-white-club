@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useRef } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import {
   MenuIcon,
@@ -42,6 +42,8 @@ function classNames(...classes) {
 }
 
 const NavbarView = () => {
+  const mobileMenuCloseRef = useRef();
+
   return (
     <Popover className="relative bg-white">
       {/* <div className="mx-auto px-4 sm:px-6 border-b-2 border-gray-lighter"> */}
@@ -161,70 +163,88 @@ const NavbarView = () => {
           focus
           className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
         >
-          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-lighter">
+          <div className="rounded-lg shadow-lg bg-white divide-y-2 divide-gray-lighter">
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between">
                 <div>
-                  <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                    alt="Workflow"
-                  />
+                  <Link className="font-display text-2xl leading-none" to="/">
+                    BWC
+                  </Link>
                 </div>
                 <div className="-mr-2">
-                  <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                  <Popover.Button
+                    className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-darker hover:text-gray-dark hover:bg-gray-lighter focus:outline-none"
+                    ref={mobileMenuCloseRef}
+                  >
                     <XIcon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
                 </div>
               </div>
               <div className="mt-6">
                 <nav className="grid gap-y-8">
-                  <button className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                  <Link
+                    className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-lighter"
+                    to="/"
+                    onClick={() => mobileMenuCloseRef.current?.click()}
+                  >
                     <HomeIcon
-                      className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                      className="flex-shrink-0 h-6 w-6 text-black"
                       aria-hidden="true"
                     />
-                    <span className="ml-3 text-base font-medium text-gray-900">
+                    <span className="ml-3 text-base font-medium text-gray-darker">
                       Home
                     </span>
-                  </button>
+                  </Link>
                   {browsePages.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
-                      href={item.href}
-                      className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+                      to={item.linkTo}
+                      className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-lighter"
+                      onClick={() => mobileMenuCloseRef.current?.click()}
                     >
                       <item.icon
-                        className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                        className="flex-shrink-0 h-6 w-6 text-black"
                         aria-hidden="true"
                       />
-                      <span className="ml-3 text-base font-medium text-gray-900">
+                      <span className="ml-3 text-base font-medium text-gray-darker">
                         {item.name}
                       </span>
-                    </a>
+                    </Link>
                   ))}
-                  <button className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                  <Link
+                    className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-lighter"
+                    to="/marketing"
+                    onClick={() => mobileMenuCloseRef.current?.click()}
+                  >
                     <SpeakerphoneIcon
-                      className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                      className="flex-shrink-0 h-6 w-6 text-black"
                       aria-hidden="true"
                     />
-                    <span className="ml-3 text-base font-medium text-gray-900">
+                    <span className="ml-3 text-base font-medium text-gray-darker">
                       Marketing
                     </span>
-                  </button>
+                  </Link>
                 </nav>
               </div>
             </div>
             <div className="py-6 px-5 space-y-6">
               <div>
-                <button className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+                <Link
+                  className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-black hover:bg-gray-darker"
+                  to="/signup"
+                  onClick={() => mobileMenuCloseRef.current?.click()}
+                >
                   Sign up
-                </button>
-                <p className="mt-6 text-center text-base font-medium text-gray-500">
+                </Link>
+                <p className="mt-6 text-center text-base text-gray-dark">
                   Already signed up?{" "}
-                  <button className="text-indigo-600 hover:text-indigo-500">
+                  <Link
+                    className="font-medium text-gray-darker hover:text-gray"
+                    to="/login"
+                    onClick={() => mobileMenuCloseRef.current?.click()}
+                  >
                     Sign in
-                  </button>
+                  </Link>
                 </p>
               </div>
             </div>
