@@ -161,7 +161,7 @@ const NavbarView = () => {
       >
         <Popover.Panel
           focus
-          className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+          className="z-50 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
         >
           <div className="rounded-lg shadow-lg bg-white divide-y-2 divide-gray-lighter">
             <div className="pt-5 pb-6 px-5">
