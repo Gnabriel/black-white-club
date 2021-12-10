@@ -11,12 +11,12 @@ import { useContext, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 function App() {
-  const { app, api } = useContext(FirebaseContext);
+  const { api } = useContext(FirebaseContext);
   const marketingPostList = useSelector((state) => state.marketingPostList);
 
   useEffect(() => {
-    api.addMarketingPosts({ test: "hejsan" });
     api.getMarketingPosts();
+    console.log(marketingPostList);
   }, []);
 
   return (
