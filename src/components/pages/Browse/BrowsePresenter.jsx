@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import AssetSource from "../../../api/assetSource";
 import BrowseView from "./BrowseView";
@@ -62,19 +62,17 @@ const BrowsePresenter = () => {
   }, [currentPage]);
 
   return (
-    <Fragment>
-      <BrowseView
-        filters={filters}
-        subCategories={subCategories}
-        mobileFiltersOpen={mobileFiltersOpen}
-        setMobileFiltersOpen={setMobileFiltersOpen}
-        assets={assets}
-        numAssets={numAssets}
-        isLoading={isLoading}
-        handlePaginationClick={handlePaginationClick}
-        currentPage={currentPage}
-      />
-    </Fragment>
+    <BrowseView
+      filters={filters}
+      subCategories={subCategories}
+      mobileFiltersOpen={mobileFiltersOpen}
+      setMobileFiltersOpen={setMobileFiltersOpen}
+      assets={assets}
+      numAssets={numAssets}
+      isLoading={isLoading}
+      handlePaginationClick={handlePaginationClick}
+      currentPage={currentPage}
+    />
   );
 };
 
