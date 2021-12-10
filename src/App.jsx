@@ -6,8 +6,16 @@ import NavbarView from "./components/common/Navbar/NavbarView";
 import LoginPresenter from "./components/pages/Login/LoginPresenter";
 import SignupPresenter from "./components/pages/Signup/SignupPresenter";
 import MarketingPresenter from "./components/pages/Marketing/MarketingPresenter";
+import { FirebaseContext } from "./firebase/firebase";
+import { useContext, useEffect } from "react";
 
 function App() {
+  const { api } = useContext(FirebaseContext);
+
+  useEffect(() => {
+    api.getMarketingPosts();
+  }, [api]);
+
   return (
     <div className="selection:bg-gray text-black">
       <Router>
