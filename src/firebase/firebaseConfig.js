@@ -7,6 +7,7 @@ const firebaseConfig = {
   storageBucket: "black-white-club.appspot.com",
   messagingSenderId: "209237759328",
   appId: "1:209237759328:web:a99aded9c1a1aa05797a05",
+  // eslint-disable-next-line
   measurementId: "${config.measurementId}",
 };
 

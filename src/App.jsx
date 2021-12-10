@@ -8,16 +8,13 @@ import SignupPresenter from "./components/pages/Signup/SignupPresenter";
 import MarketingPresenter from "./components/pages/Marketing/MarketingPresenter";
 import { FirebaseContext } from "./firebase/firebase";
 import { useContext, useEffect } from "react";
-import { useSelector } from "react-redux";
 
 function App() {
   const { api } = useContext(FirebaseContext);
-  const marketingPostList = useSelector((state) => state.marketingPostList);
 
   useEffect(() => {
     api.getMarketingPosts();
-    console.log(marketingPostList);
-  }, []);
+  }, [api]);
 
   return (
     <div className="selection:bg-gray text-black">

@@ -1,14 +1,10 @@
 // Contains the Firebase context and provider.
-import React, { createContext, useEffect } from "react";
+import React, { createContext } from "react";
 import firebaseConfig from "./firebaseConfig";
-// import { initializeApp } from "firebase/app";
-// import { getFirestore } from "firebase/firestore/lite";
 import { useDispatch } from "react-redux";
 import { setMarketingPosts } from "../redux/actions/marketingPostList";
 import app from "firebase/compat/app";
 import "firebase/compat/database";
-// import "firebase/compat/auth";
-// import "firebase/compat/firestore";
 
 // Create a React Context, for this to be accessible from a component later.
 const FirebaseContext = createContext(null);
@@ -33,7 +29,6 @@ const FirebaseProvider = ({ children }) => {
     firebase.database.ref("marketingPosts").on("value", (snapshot) => {
       const vals = snapshot.val();
       let _records = [];
-      console.log(vals);
       for (var key in vals) {
         _records.push(vals[key]);
       }
