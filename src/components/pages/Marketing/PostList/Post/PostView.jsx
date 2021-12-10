@@ -2,7 +2,7 @@ import { TwitterTweetEmbed } from "react-twitter-embed";
 
 const PostView = ({ post }) => {
   return (
-    <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+    <div className="w-full lg:w-2/3 bg-white shadow overflow-hidden sm:rounded-lg">
       <div className="px-4 py-5 sm:px-6">
         <h3 className="text-lg leading-6 font-medium text-gray-900">
           {post.title}
