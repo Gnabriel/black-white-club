@@ -41,7 +41,7 @@ const MarketingPresenter = () => {
   }, [postList]);
 
   return (
-    <Fragment>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-6 flex flex-col gap-5">
       <PostFormView
         onPostName={(name) => setPostName(name)}
         onPostTitle={(title) => setPostTitle(title)}
@@ -50,7 +50,7 @@ const MarketingPresenter = () => {
         onPost={() => createPost()}
       />
       <MarketingView posts={posts} />
-    </Fragment>
+    </div>
   );
 };
 export default MarketingPresenter;
