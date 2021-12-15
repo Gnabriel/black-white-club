@@ -14,16 +14,19 @@ const MarketingPresenter = () => {
   const [posts, setPosts] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in.
-      setIsAuthenticated(true);
-    } else {
-      // User is signed out.
-      setIsAuthenticated(false);
-    }
-  });
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in.
+        setIsAuthenticated(true);
+      } else {
+        // User is signed out.
+        setIsAuthenticated(false);
+      }
+    });
+    return unsubscribe();
+  }, []);
 
   const { api } = useContext(FirebaseContext);
 

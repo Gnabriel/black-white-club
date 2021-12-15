@@ -4,7 +4,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import LoginView from "./LoginView";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const LoginPresenter = () => {
   const [email, setEmail] = useState("");
@@ -26,15 +26,18 @@ const LoginPresenter = () => {
       });
   };
 
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in.
-      setIsAuthenticated(true);
-    } else {
-      // User is signed out.
-      setIsAuthenticated(false);
-    }
-  });
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in.
+        setIsAuthenticated(true);
+      } else {
+        // User is signed out.
+        setIsAuthenticated(false);
+      }
+    });
+    return unsubscribe();
+  }, [auth]);
 
   return (
     <LoginView
