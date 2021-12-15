@@ -5,7 +5,7 @@ const FilterView = ({ filters, subCategories }) => {
   return (
     <div className="mt-4 border-t border-gray-lighter lg:mt-0 lg:border-none">
       <p className="text-gray-dark">
-        Here you can browse all the assets that belongs to the Black White Club
+        Here you can browse all the assets that belong to the Black White Club
         NFT collection.
       </p>
     </div>
