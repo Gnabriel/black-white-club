@@ -4,44 +4,16 @@ import {
   MenuIcon,
   HomeIcon,
   SpeakerphoneIcon,
-  DocumentIcon,
   XIcon,
 } from "@heroicons/react/outline";
-import {
-  ChevronDownIcon,
-  DocumentIcon as DocumentIconSolid,
-  CollectionIcon,
-} from "@heroicons/react/solid";
+import { ChevronDownIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
-
-const browsePages = [
-  {
-    name: "The Black",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
-    linkTo: "/browse",
-    icon: DocumentIconSolid,
-  },
-  {
-    name: "The White",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
-    linkTo: "/browse",
-    icon: DocumentIcon,
-  },
-  {
-    name: "Browse All",
-    description: "Browse the whole Black White Club collection.",
-    linkTo: "/browse",
-    icon: CollectionIcon,
-  },
-];
 
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(" ");
 };
 
-const NavbarView = () => {
+const NavbarView = ({ browsePages, isAuthenticated, handleLogout }) => {
   const mobileMenuCloseRef = useRef();
 
   return (
@@ -134,18 +106,29 @@ const NavbarView = () => {
             </Link>
           </Popover.Group>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-            <Link
-              className="py-2 px-4 text-base rounded-md font-medium text-gray-darker hover:text-black hover:bg-gray-lighter whitespace-nowrap"
-              to="login"
-            >
-              Sign in
-            </Link>
-            <Link
-              className="ml-8 py-2 px-4 whitespace-nowrap inline-flex items-center justify-center border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-black hover:bg-gray-darker"
-              to="signup"
-            >
-              Sign up
-            </Link>
+            {isAuthenticated ? (
+              <button
+                className="py-2 px-4 text-base rounded-md font-medium text-gray-darker hover:text-black hover:bg-gray-lighter whitespace-nowrap"
+                onClick={() => handleLogout()}
+              >
+                Sign out
+              </button>
+            ) : (
+              <div>
+                <Link
+                  className="py-2 px-4 text-base rounded-md font-medium text-gray-darker hover:text-black hover:bg-gray-lighter whitespace-nowrap"
+                  to="login"
+                >
+                  Sign in
+                </Link>
+                <Link
+                  className="ml-8 py-2 px-4 whitespace-nowrap inline-flex items-center justify-center border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-black hover:bg-gray-darker"
+                  to="signup"
+                >
+                  Sign up
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>
