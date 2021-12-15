@@ -211,25 +211,37 @@ const NavbarView = ({ browsePages, isAuthenticated, handleLogout }) => {
               </div>
             </div>
             <div className="py-6 px-5 space-y-6">
-              <div>
-                <Link
+              {isAuthenticated ? (
+                <button
                   className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-black hover:bg-gray-darker"
-                  to="/signup"
-                  onClick={() => mobileMenuCloseRef.current?.click()}
+                  onClick={() => {
+                    handleLogout();
+                    mobileMenuCloseRef.current?.click();
+                  }}
                 >
-                  Sign up
-                </Link>
-                <p className="mt-6 text-center text-base text-gray-dark">
-                  Already signed up?{" "}
+                  Sign out
+                </button>
+              ) : (
+                <div>
                   <Link
-                    className="font-medium text-gray-darker hover:text-gray"
-                    to="/login"
+                    className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-black hover:bg-gray-darker"
+                    to="/signup"
                     onClick={() => mobileMenuCloseRef.current?.click()}
                   >
-                    Sign in
+                    Sign up
                   </Link>
-                </p>
-              </div>
+                  <p className="mt-6 text-center text-base text-gray-dark">
+                    Already signed up?{" "}
+                    <Link
+                      className="font-medium text-gray-darker hover:text-gray"
+                      to="/login"
+                      onClick={() => mobileMenuCloseRef.current?.click()}
+                    >
+                      Sign in
+                    </Link>
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </Popover.Panel>
