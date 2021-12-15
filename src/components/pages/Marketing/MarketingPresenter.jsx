@@ -36,7 +36,7 @@ const MarketingPresenter = () => {
   const postList = useSelector((state) => state.marketingPostList);
 
   const createPost = () => {
-    if (isAuthenticated) {
+    if (isAuthenticated && postName && postTitle && postText && postId) {
       const newPost = {
         name: postName,
         title: postTitle,

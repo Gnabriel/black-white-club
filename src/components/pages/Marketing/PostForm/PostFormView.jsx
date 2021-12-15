@@ -23,7 +23,10 @@ const PostFormView = ({
         </div>
       </div>
       <div className="mt-5 md:mt-0 md:col-span-2">
-        <div className="shadow overflow-hidden sm:rounded-md">
+        <form
+          className="shadow overflow-hidden sm:rounded-md"
+          onSubmit={(e) => e.preventDefault()}
+        >
           <div className="px-4 py-5 bg-white sm:p-6">
             <div className="grid grid-cols-6 gap-6">
               <div className="col-span-6 lg:col-span-3">
@@ -39,6 +42,8 @@ const PostFormView = ({
                   id="title"
                   className="mt-1 focus:ring-black focus:border-black block w-full shadow-sm sm:text-sm border-gray-light rounded-md"
                   placeholder="e.g 'My latest marketing post about Black White Club'"
+                  required
+                  minLength={6}
                 />
               </div>
               <div className="col-span-6 lg:col-span-3">
@@ -58,6 +63,8 @@ const PostFormView = ({
                   autoComplete="nickname"
                   className="mt-1 focus:ring-black focus:border-black block w-full shadow-sm sm:text-sm border-gray-light rounded-md"
                   placeholder="What should we call you?"
+                  required
+                  minLength={2}
                 />
               </div>
               <div className="col-span-6 lg:col-span-3">
@@ -78,6 +85,8 @@ const PostFormView = ({
                     className="shadow-sm focus:ring-black focus:border-black mt-1 block w-full sm:text-sm border border-gray-light rounded-md"
                     placeholder="Describe the purpose of this marketing post."
                     defaultValue={""}
+                    required
+                    minLength={10}
                   />
                 </div>
               </div>
@@ -101,6 +110,8 @@ const PostFormView = ({
                     onInput={(e) => {
                       onPostUrl(e.target.value);
                     }}
+                    required
+                    minLength={30}
                   />
                 </div>
               </div>
@@ -117,7 +128,7 @@ const PostFormView = ({
               Submit Tweet
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
