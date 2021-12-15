@@ -37,9 +37,9 @@ const browsePages = [
   },
 ];
 
-function classNames(...classes) {
+const classNames = (...classes) => {
   return classes.filter(Boolean).join(" ");
-}
+};
 
 const NavbarView = () => {
   const mobileMenuCloseRef = useRef();
