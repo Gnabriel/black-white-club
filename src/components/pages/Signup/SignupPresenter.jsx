@@ -1,5 +1,9 @@
 import SignupView from "./SignupView";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
 import { useState } from "react";
 
 const SignupPresenter = () => {
@@ -10,6 +14,16 @@ const SignupPresenter = () => {
   const [authError, setAuthError] = useState("");
 
   const auth = getAuth();
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in.
+      setIsAuthenticated(true);
+    } else {
+      // User is signed out.
+      setIsAuthenticated(false);
+    }
+  });
 
   const createUserWithEmail = () => {
     setAuthError("");
