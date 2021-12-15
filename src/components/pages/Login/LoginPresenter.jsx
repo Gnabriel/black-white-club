@@ -36,7 +36,7 @@ const LoginPresenter = () => {
         setIsAuthenticated(false);
       }
     });
-    return unsubscribe();
+    return () => unsubscribe();
   }, [auth]);
 
   return (

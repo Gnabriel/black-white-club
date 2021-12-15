@@ -26,7 +26,7 @@ const SignupPresenter = () => {
       }
     });
 
-    return unsubscribe();
+    return () => unsubscribe();
   }, [auth]);
 
   const createUserWithEmail = () => {
