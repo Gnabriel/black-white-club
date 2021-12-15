@@ -6,7 +6,7 @@ import {
   QuestionMarkCircleIcon,
 } from "@heroicons/react/solid";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const browsePages = [
   // {
@@ -41,14 +41,18 @@ const NavbarPresenter = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in.
-      setIsAuthenticated(true);
-    } else {
-      // User is signed out.
-      setIsAuthenticated(false);
-    }
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in.
+        setIsAuthenticated(true);
+      } else {
+        // User is signed out.
+        setIsAuthenticated(false);
+      }
+    });
+    return () => unsubscribe();
   });
 
   return (
