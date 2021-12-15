@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const SignupView = () => {
   return (
-    <div className="h-[94vh] min-h-full flex items-center justify-center bg-white">
+    <div className="h-[90vh] min-h-full flex items-center justify-center bg-white">
       <div className="px-6 lg:px-12 py-32 rounded-xl max-w-md w-full space-y-8 bg-gray-lighter">
         <div>
           <h2 className="text-center text-3xl font-extrabold text-black">
