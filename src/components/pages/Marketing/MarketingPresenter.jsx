@@ -61,15 +61,14 @@ const MarketingPresenter = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-6 flex flex-col gap-5">
-      {!isAuthenticated || (
-        <PostFormView
-          onPostName={(name) => setPostName(name)}
-          onPostTitle={(title) => setPostTitle(title)}
-          onPostText={(text) => setPostText(text)}
-          onPostUrl={(url) => setPostId(getIdFromUrl(url))}
-          onPost={() => createPost()}
-        />
-      )}
+      <PostFormView
+        onPostName={(name) => setPostName(name)}
+        onPostTitle={(title) => setPostTitle(title)}
+        onPostText={(text) => setPostText(text)}
+        onPostUrl={(url) => setPostId(getIdFromUrl(url))}
+        onPost={() => createPost()}
+        isAuthenticated={isAuthenticated}
+      />
       <MarketingView posts={posts} />
     </div>
   );
