@@ -96,7 +96,7 @@ const SignupView = ({
                 <button
                   type="submit"
                   className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-black hover:bg-gray-darker focus:outline-none focus:ring-none"
-                  onClick={(e) => handleClick()}
+                  onClick={() => handleClick()}
                 >
                   <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                     <LockClosedIcon
