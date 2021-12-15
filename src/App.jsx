@@ -2,12 +2,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BrowsePresenter from "./components/pages/Browse/BrowsePresenter";
 import AssetDetailsPresenter from "./components/pages/AssetDetails/AssetDetailsPresenter";
 import HomeView from "./components/pages/Home/HomeView";
-import NavbarView from "./components/common/Navbar/NavbarView";
 import LoginPresenter from "./components/pages/Login/LoginPresenter";
 import SignupPresenter from "./components/pages/Signup/SignupPresenter";
 import MarketingPresenter from "./components/pages/Marketing/MarketingPresenter";
 import { FirebaseContext } from "./firebase/firebase";
 import { useContext, useEffect } from "react";
+import NavbarPresenter from "./components/common/Navbar/NavbarPresenter";
 
 function App() {
   const { api } = useContext(FirebaseContext);
@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="selection:bg-gray text-black">
       <Router>
-        <NavbarView />
+        <NavbarPresenter />
         <Routes>
           <Route path="/" element={<HomeView />} />
           <Route path="/browse" element={<BrowsePresenter />} />
