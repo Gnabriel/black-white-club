@@ -32,7 +32,9 @@ const AssetListItemView = ({ asset, handleClick, isLoading }) => {
             {asset.name}
           </h3>
           <p className="mt-1 text-lg font-medium text-gray-darker">
-            {asset.ethPrice || "N/A"}
+            {asset.ethPrice
+              ? Math.round(asset.ethPrice * 1000) / 1000 + " ETH"
+              : "Not for sale"}
           </p>
         </div>
       )}
