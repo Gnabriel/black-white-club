@@ -47,7 +47,7 @@ const NavbarView = () => {
   return (
     <Popover className="relative bg-white">
       {/* <div className="mx-auto px-4 sm:px-6 border-b-2 border-gray-lighter"> */}
-      <div className="h-[6vh] mx-auto px-4 sm:px-6 bg-white flex flex-col justify-center">
+      <div className="h-[10vh] mx-auto px-4 sm:px-6 bg-white flex flex-col justify-center">
         <div className="flex justify-between items-center  md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <Link className="-mb-2 font-display text-2xl leading-none" to="/">
