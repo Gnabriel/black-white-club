@@ -38,9 +38,6 @@ const SignupPresenter = () => {
           if (error.code === "auth/email-already-in-use") {
             setAuthError("This email already exists.");
           }
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorCode + ": " + errorMessage);
         });
   };
 

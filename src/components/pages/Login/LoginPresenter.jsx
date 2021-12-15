@@ -22,7 +22,6 @@ const LoginPresenter = () => {
         setIsAuthenticated(true);
       })
       .catch((error) => {
-        console.log(error);
         setAuthError("Wrong username or password.");
       });
   };
