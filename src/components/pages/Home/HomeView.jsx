@@ -20,7 +20,6 @@ const HomeView = () => {
           </span>
         </h1>
       </div>
-      <div className="h-24 bg-green-200"></div>
     </div>
   );
 };
