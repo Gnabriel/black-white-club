@@ -72,7 +72,8 @@ const NavbarView = ({ browsePages, isAuthenticated, handleLogout }) => {
                       <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                         <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                           {browsePages.map((item) => (
-                            <Link
+                            <Popover.Button
+                              as={Link}
                               key={item.name}
                               to={item.linkTo}
                               className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-lighter"
@@ -89,7 +90,7 @@ const NavbarView = ({ browsePages, isAuthenticated, handleLogout }) => {
                                   {item.description}
                                 </p>
                               </div>
-                            </Link>
+                            </Popover.Button>
                           ))}
                         </div>
                       </div>
