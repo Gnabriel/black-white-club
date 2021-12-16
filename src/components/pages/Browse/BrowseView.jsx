@@ -14,6 +14,7 @@ export const BrowseView = ({
   isLoading,
   currentPage,
   handlePaginationClick,
+  handleAssetClick,
 }) => {
   return (
     <div className="bg-white">
@@ -47,6 +48,7 @@ export const BrowseView = ({
                   assets={assets}
                   numAssets={numAssets}
                   isLoading={isLoading}
+                  handleAssetClick={handleAssetClick}
                 />
                 <PaginationView
                   handleClick={handlePaginationClick}
