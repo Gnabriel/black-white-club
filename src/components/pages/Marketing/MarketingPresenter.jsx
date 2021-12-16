@@ -1,9 +1,10 @@
-import { Fragment, useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import MarketingView from "./MarketingView";
 import PostFormView from "./PostForm/PostFormView";
 import { addMarketingPost } from "../../../redux/actions/marketingPostList";
 import { FirebaseContext } from "../../../firebase/firebase";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const MarketingPresenter = () => {
   const [postName, setPostName] = useState("");
@@ -11,6 +12,22 @@ const MarketingPresenter = () => {
   const [postText, setPostText] = useState("");
   const [postId, setPostId] = useState("");
   const [posts, setPosts] = useState([]);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const auth = getAuth();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in.
+        setIsAuthenticated(true);
+      } else {
+        // User is signed out.
+        setIsAuthenticated(false);
+      }
+    });
+    return () => unsubscribe();
+  }, [auth]);
 
   const { api } = useContext(FirebaseContext);
 
@@ -19,16 +36,18 @@ const MarketingPresenter = () => {
   const postList = useSelector((state) => state.marketingPostList);
 
   const createPost = () => {
-    const newPost = {
-      name: postName,
-      title: postTitle,
-      text: postText,
-      id: postId,
-    };
-    const newPosts = [newPost, ...posts];
-    setPosts(newPosts);
-    dispatch(addMarketingPost(newPost));
-    api.addMarketingPost(newPost);
+    if (isAuthenticated && postName && postTitle && postText && postId) {
+      const newPost = {
+        name: postName,
+        title: postTitle,
+        text: postText,
+        id: postId,
+      };
+      const newPosts = [newPost, ...posts];
+      setPosts(newPosts);
+      dispatch(addMarketingPost(newPost));
+      api.addMarketingPost(newPost);
+    }
   };
 
   const getIdFromUrl = (url) => {
@@ -37,7 +56,7 @@ const MarketingPresenter = () => {
   };
 
   useEffect(() => {
-    setPosts(postList.reverse());
+    setPosts(postList);
   }, [postList]);
 
   return (
@@ -48,8 +67,9 @@ const MarketingPresenter = () => {
         onPostText={(text) => setPostText(text)}
         onPostUrl={(url) => setPostId(getIdFromUrl(url))}
         onPost={() => createPost()}
+        isAuthenticated={isAuthenticated}
       />
-      <MarketingView posts={posts} />
+      <MarketingView posts={[...posts].reverse()} />
     </div>
   );
 };

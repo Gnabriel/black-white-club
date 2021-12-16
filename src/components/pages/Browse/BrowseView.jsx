@@ -1,7 +1,7 @@
 import AssetListView from "./AssetList/AssetListView";
-import SortView from "./Sort/SortView";
+// import SortView from "./Sort/SortView";
 import FilterView from "./Filter/FilterView";
-import FilterMobileView from "./Filter/FilterMobileView";
+// import FilterMobileView from "./Filter/FilterMobileView";
 import PaginationView from "./Pagination/PaginationView";
 
 export const BrowseView = ({
@@ -14,24 +14,25 @@ export const BrowseView = ({
   isLoading,
   currentPage,
   handlePaginationClick,
+  handleAssetClick,
 }) => {
   return (
     <div className="bg-white">
       <div>
         {/* Mobile filter dialog */}
-        <FilterMobileView
+        {/* <FilterMobileView
           mobileFiltersOpen={mobileFiltersOpen}
           setMobileFiltersOpen={setMobileFiltersOpen}
         >
           <FilterView filters={filters} subCategories={subCategories} />
-        </FilterMobileView>
+        </FilterMobileView> */}
 
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative z-10 flex items-baseline justify-between pt-16 pb-6 border-b border-gray-lighter">
             <h1 className="text-4xl font-extrabold tracking-tight text-black">
               The collection
             </h1>
-            <SortView setMobileFiltersOpen={setMobileFiltersOpen} />
+            {/* <SortView setMobileFiltersOpen={setMobileFiltersOpen} /> */}
           </div>
 
           <section aria-labelledby="products-heading" className="pt-6 pb-24">
@@ -47,6 +48,7 @@ export const BrowseView = ({
                   assets={assets}
                   numAssets={numAssets}
                   isLoading={isLoading}
+                  handleAssetClick={handleAssetClick}
                 />
                 <PaginationView
                   handleClick={handlePaginationClick}

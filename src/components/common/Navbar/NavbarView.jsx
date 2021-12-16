@@ -4,50 +4,22 @@ import {
   MenuIcon,
   HomeIcon,
   SpeakerphoneIcon,
-  DocumentIcon,
   XIcon,
 } from "@heroicons/react/outline";
-import {
-  ChevronDownIcon,
-  DocumentIcon as DocumentIconSolid,
-  CollectionIcon,
-} from "@heroicons/react/solid";
+import { ChevronDownIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
 
-const browsePages = [
-  {
-    name: "The Black",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
-    linkTo: "/browse",
-    icon: DocumentIconSolid,
-  },
-  {
-    name: "The White",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
-    linkTo: "/browse",
-    icon: DocumentIcon,
-  },
-  {
-    name: "Browse All",
-    description: "Browse the whole Black White Club collection.",
-    linkTo: "/browse",
-    icon: CollectionIcon,
-  },
-];
-
-function classNames(...classes) {
+const classNames = (...classes) => {
   return classes.filter(Boolean).join(" ");
-}
+};
 
-const NavbarView = () => {
+const NavbarView = ({ browsePages, isAuthenticated, handleLogout }) => {
   const mobileMenuCloseRef = useRef();
 
   return (
     <Popover className="relative bg-white">
       {/* <div className="mx-auto px-4 sm:px-6 border-b-2 border-gray-lighter"> */}
-      <div className="h-[6vh] mx-auto px-4 sm:px-6 bg-white flex flex-col justify-center">
+      <div className="h-[10vh] mx-auto px-4 sm:px-6 bg-white flex flex-col justify-center">
         <div className="flex justify-between items-center  md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <Link className="-mb-2 font-display text-2xl leading-none" to="/">
@@ -96,11 +68,12 @@ const NavbarView = () => {
                     leaveFrom="opacity-100 translate-y-0"
                     leaveTo="opacity-0 translate-y-1"
                   >
-                    <Popover.Panel className="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
+                    <Popover.Panel className="absolute z-50 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
                       <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                         <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                           {browsePages.map((item) => (
-                            <Link
+                            <Popover.Button
+                              as={Link}
                               key={item.name}
                               to={item.linkTo}
                               className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-lighter"
@@ -117,7 +90,7 @@ const NavbarView = () => {
                                   {item.description}
                                 </p>
                               </div>
-                            </Link>
+                            </Popover.Button>
                           ))}
                         </div>
                       </div>
@@ -134,18 +107,29 @@ const NavbarView = () => {
             </Link>
           </Popover.Group>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-            <Link
-              className="py-2 px-4 text-base rounded-md font-medium text-gray-darker hover:text-black hover:bg-gray-lighter whitespace-nowrap"
-              to="login"
-            >
-              Sign in
-            </Link>
-            <Link
-              className="ml-8 py-2 px-4 whitespace-nowrap inline-flex items-center justify-center border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-black hover:bg-gray-darker"
-              to="signup"
-            >
-              Sign up
-            </Link>
+            {isAuthenticated ? (
+              <button
+                className="py-2 px-4 text-base rounded-md font-medium text-gray-darker hover:text-black hover:bg-gray-lighter whitespace-nowrap"
+                onClick={() => handleLogout()}
+              >
+                Sign out
+              </button>
+            ) : (
+              <div>
+                <Link
+                  className="py-2 px-4 text-base rounded-md font-medium text-gray-darker hover:text-black hover:bg-gray-lighter whitespace-nowrap"
+                  to="login"
+                >
+                  Sign in
+                </Link>
+                <Link
+                  className="ml-8 py-2 px-4 whitespace-nowrap inline-flex items-center justify-center border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-black hover:bg-gray-darker"
+                  to="signup"
+                >
+                  Sign up
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -228,25 +212,37 @@ const NavbarView = () => {
               </div>
             </div>
             <div className="py-6 px-5 space-y-6">
-              <div>
-                <Link
+              {isAuthenticated ? (
+                <button
                   className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-black hover:bg-gray-darker"
-                  to="/signup"
-                  onClick={() => mobileMenuCloseRef.current?.click()}
+                  onClick={() => {
+                    handleLogout();
+                    mobileMenuCloseRef.current?.click();
+                  }}
                 >
-                  Sign up
-                </Link>
-                <p className="mt-6 text-center text-base text-gray-dark">
-                  Already signed up?{" "}
+                  Sign out
+                </button>
+              ) : (
+                <div>
                   <Link
-                    className="font-medium text-gray-darker hover:text-gray"
-                    to="/login"
+                    className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-black hover:bg-gray-darker"
+                    to="/signup"
                     onClick={() => mobileMenuCloseRef.current?.click()}
                   >
-                    Sign in
+                    Sign up
                   </Link>
-                </p>
-              </div>
+                  <p className="mt-6 text-center text-base text-gray-dark">
+                    Already signed up?{" "}
+                    <Link
+                      className="font-medium text-gray-darker hover:text-gray"
+                      to="/login"
+                      onClick={() => mobileMenuCloseRef.current?.click()}
+                    >
+                      Sign in
+                    </Link>
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </Popover.Panel>

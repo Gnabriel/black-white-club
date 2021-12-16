@@ -38,7 +38,7 @@ const AssetDetailsView = ({ asset }) => {
 
         {/* Media */}
         <div className="mt-6 max-w-2xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-x-8">
-          <div className="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block">
+          <div className="mx-4 lg:mx-0 aspect-w-3 aspect-h-4 rounded-lg overflow-hidden">
             <video autoPlay muted loop>
               <source src={asset.animationUrl} type="video/mp4" />
             </video>
@@ -79,12 +79,13 @@ const AssetDetailsView = ({ asset }) => {
           <div className="py-10 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-lighter lg:pr-8">
             {/* Description and details */}
             <div>
-              <div className="space-y-6">
-                <p className="text-base text-black">{asset.description}</p>
+              <div className="space-y-2">
+                <h2 className="text-sm font-medium text-black">Description</h2>
+                <p className="text-sm text-gray-darker">{asset.description}</p>
               </div>
             </div>
 
-            <div className="mt-10">
+            {/* <div className="mt-10">
               <h3 className="text-sm font-medium text-black">Highlights</h3>
 
               <div className="mt-4">
@@ -98,29 +99,32 @@ const AssetDetailsView = ({ asset }) => {
                   )}
                 </ul>
               </div>
-            </div>
+            </div> */}
 
             <div className="mt-10">
               <h2 className="text-sm font-medium text-black">Details</h2>
 
-              <div className="mt-4 space-y-6">
+              <div className="mt-4 space-y-3">
                 <p className="text-sm text-gray-darker">
-                  Number of sales: {asset.numSales}
+                  <span className="text-gray">Number of sales:</span>{" "}
+                  {asset.numSales}
                 </p>
                 <p className="text-sm text-gray-darker">
-                  Last sale:{" "}
-                  {asset.lastSale.date.toDateString() +
+                  <span className="text-gray">Last sale:</span>{" "}
+                  {asset.lastSale.date.toDateString()}
+                  {/* {asset.lastSale.date.toDateString() +
                     " " +
-                    asset.lastSale.date.toTimeString()}
+                    asset.lastSale.date.toTimeString()} */}
                 </p>
                 <p className="text-sm text-gray-darker">
-                  Last sale price (USD): {asset.lastSale.usdPrice}
+                  <span className="text-gray">Last sale price:</span> $
+                  {Math.round(asset.lastSale.usdPrice * 1000) / 1000}{" "}
+                  <span className="text-lg font-bold">/</span>{" "}
+                  {Math.round(asset.lastSale.ethPrice * 1000) / 1000} ETH
                 </p>
                 <p className="text-sm text-gray-darker">
-                  Last sale price (ETH): {asset.lastSale.ethPrice}
-                </p>
-                <p className="text-sm text-gray-darker">
-                  Top bid: {asset.topBid || "none"}
+                  <span className="text-gray">Top bid:</span>{" "}
+                  {asset.topBid || "No bid yet"}
                 </p>
               </div>
             </div>

@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router";
 import AssetSource from "../../../api/assetSource";
 import BrowseView from "./BrowseView";
+import setCurrentAsset from "../../../redux/actions/currentAsset";
 
 const subCategories = [
   { name: "Subcategory #1", href: "#" },
@@ -36,6 +38,13 @@ const BrowsePresenter = () => {
   );
 
   const numAssets = 24;
+
+  const reduxDispatch = useDispatch();
+
+  const handleAssetClick = (asset) => {
+    reduxDispatch(setCurrentAsset(asset));
+    navigate("/assets/" + asset.id);
+  };
 
   const handlePaginationClick = ({ increment }) => {
     const newPage = increment
@@ -72,6 +81,7 @@ const BrowsePresenter = () => {
       isLoading={isLoading}
       handlePaginationClick={handlePaginationClick}
       currentPage={currentPage}
+      handleAssetClick={handleAssetClick}
     />
   );
 };

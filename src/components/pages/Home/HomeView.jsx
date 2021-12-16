@@ -1,6 +1,6 @@
 const HomeView = () => {
   return (
-    <div className="h-[94vh]">
+    <div className="h-[90vh]">
       {/* <div className="h-full bg-white-black"> */}
       <div className="h-full grid grid-cols-2 bg-white-black">
         <div className="hero-white-marble-img"></div>
@@ -20,7 +20,6 @@ const HomeView = () => {
           </span>
         </h1>
       </div>
-      <div className="h-24 bg-green-200"></div>
     </div>
   );
 };
