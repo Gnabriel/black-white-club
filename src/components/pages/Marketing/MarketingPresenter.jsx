@@ -56,7 +56,7 @@ const MarketingPresenter = () => {
   };
 
   useEffect(() => {
-    setPosts(postList.reverse());
+    setPosts(postList);
   }, [postList]);
 
   return (
@@ -69,7 +69,7 @@ const MarketingPresenter = () => {
         onPost={() => createPost()}
         isAuthenticated={isAuthenticated}
       />
-      <MarketingView posts={posts} />
+      <MarketingView posts={[...posts].reverse()} />
     </div>
   );
 };
