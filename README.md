@@ -1,6 +1,8 @@
 # Black White Club
 _A project in the course DH2642 Interaction Programming and the Dynamic Web._
 
+See the deployed website here: https://elastic-jones-4500b0.netlify.app/
+
 ## About
 This repositort contains a web application for the Black White Club NFT. Black White Club is a collection of art pieces registered as NFTs on the Ethereum blockchain. On this website you can browse all art pieces and see more details about them.
 
