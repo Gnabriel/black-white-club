@@ -1,6 +1,7 @@
 # Black White Club
 _A project in the course DH2642 Interaction Programming and the Dynamic Web._
 
+## Preview
 See the deployed website here: https://elastic-jones-4500b0.netlify.app/
 
 ## About
